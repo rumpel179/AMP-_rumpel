@@ -1,0 +1,93 @@
+[
+    {
+        "DisplayName": "Server Name",
+        "Category": "",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Server.Name",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Server.Name",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Server Beschreibung",
+        "Category": "",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Server.MOTD",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Server.MOTD",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Max Player",
+        "Category": "",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Settings.MaxPlayers",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.MaxPlayers",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "12",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Time Limit",
+        "Category": "Match Settings",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Settings.DefaultTimeLimit",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.DefaultTimeLimit",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "25",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Score Limit",
+        "Category": "Match Settings",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Settings.DefaultScoreLimit",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.DefaultScoreLimit",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "50",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Max Latency",
+        "Category": "Match Settings",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Settings.MaxLatency",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.MaxLatency",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "999",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Default Score",
+        "Category": "Match Settings",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Settings.DefaultScoreLimit",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.DefaultScoreLimit",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "50",
+        "EnumValues": {}
+    }
+]
