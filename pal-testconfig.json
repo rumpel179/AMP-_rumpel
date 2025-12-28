@@ -1,0 +1,86 @@
+[
+    {
+        "DisplayName": "Option Settings",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "OptionSettings",
+        "InputType": "text",
+        "DefaultValue": "("
+    },
+    {
+        "DisplayName": "Difficulty",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "Difficulty",
+        "InputType": "text",
+        "DefaultValue": "None,"
+    },
+    {
+        "DisplayName": "Day Time Speed Rate",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "DayTimeSpeedRate",
+        "InputType": "text",
+        "DefaultValue": "1.000000,"
+    },
+    {
+        "DisplayName": "Night Time Speed Rate",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "NightTimeSpeedRate",
+        "InputType": "text",
+        "DefaultValue": "1.000000,"
+    },
+    {
+        "DisplayName": "Exp Rate",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "ExpRate",
+        "InputType": "text",
+        "DefaultValue": "2.000000,"
+    },
+    {
+        "DisplayName": "Pal Capture Rate",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "PalCaptureRate",
+        "InputType": "text",
+        "DefaultValue": "2.000000,"
+    },
+    {
+        "DisplayName": "Pal Spawn Num Rate",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "PalSpawnNumRate",
+        "InputType": "text",
+        "DefaultValue": "1.000000,"
+    },
+    {
+        "DisplayName": "Server Name",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "ServerName",
+        "InputType": "text",
+        "DefaultValue": "\"My Awesome Server\","
+    },
+    {
+        "DisplayName": "Server Password",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "ServerPassword",
+        "InputType": "text",
+        "DefaultValue": "\"YourSecretPassword\","
+    },
+    {
+        "DisplayName": "Server Player Max Num",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "ServerPlayerMaxNum",
+        "InputType": "text",
+        "DefaultValue": "16,"
+    },
+    {
+        "DisplayName": "b Enable Player To Player Damage",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "bEnablePlayerToPlayerDamage",
+        "InputType": "text",
+        "DefaultValue": "False,"
+    },
+    {
+        "DisplayName": "b Enable Invader Enemy",
+        "Category": "Palworld Dedicated Server:stadia_controller",
+        "FieldName": "bEnableInvaderEnemy",
+        "InputType": "text",
+        "DefaultValue": "False"
+    }
+]
