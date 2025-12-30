@@ -1,0 +1,7 @@
+{
+    "DisplayName": "Palworld (Generic Template)",
+    "Category": "Games",
+    "Author": "rumpel - GameServer-Install.de",
+    "SupportsLinux": true,
+    "SupportsWindows": true
+}

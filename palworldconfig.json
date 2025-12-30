@@ -1,0 +1,32 @@
+{
+    "Sections": [
+        {
+            "Name": "Server Einstellungen",
+            "Description": "Grundkonfiguration für deinen Palworld Server",
+            "Items": [
+                {
+                    "Name": "PublicPort",
+                    "Description": "Der Port, auf dem der Server erreichbar ist (Standard 8211)",
+                    "Type": "Number",
+                    "DefaultValue": "8211"
+                },
+                {
+                    "Name": "MaxPlayers",
+                    "Description": "Maximale Anzahl an Spielern",
+                    "Type": "Number",
+                    "DefaultValue": "32"
+                },
+                {
+                    "Name": "ServerPassword",
+                    "Description": "Passwort für den Serverbeitritt",
+                    "Type": "Password",
+                    "DefaultValue": ""
+                }
+            ]
+        }
+    ],
+    "Branding": {
+        "Footer": "Powered by GameServer-Install.de by rumpel",
+        "Logo": "https://gameserver-install.de/images/unikat/logo.png"
+    }
+}
