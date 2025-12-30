@@ -1,9 +1,0 @@
-Meta.ID=palworld
-Meta.DisplayName=Palworld Dedicated Server
-Meta.Author=rumpel
-Meta.ConfigManifest=palworldconfig.json
-Meta.MetaConfigManifest=palworldmetaconfig.json
-App.SteamAppId=2394010
-App.ExecutableWin=
-App.Ports=@IncludeJson[palworldports.json]
-App.UpdateSources=@IncludeJson[palworldupdates.json]
