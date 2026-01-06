@@ -1,0 +1,36 @@
+[
+    {
+        "DisplayName": "Server Name",
+        "Category": "Server Settings",
+        "Description": "",
+        "Keywords": "server,name",
+        "FieldName": "Server.Name",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Server.Name",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "by rumpel",
+        "Placeholder": "by rumpel",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Max Player",
+        "Category": "Server Settings",
+        "Description": "",
+        "Keywords": "max,player",
+        "FieldName": "Settings.MaxPlayers",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.MaxPlayers",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "4",
+        "Placeholder": "4",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    }
+]
