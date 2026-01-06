@@ -1,0 +1,41 @@
+[
+    {
+        "DisplayName": "Server Name",
+        "Category": "",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Server.Name",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Server.Name",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Server Beschreibung",
+        "Category": "",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Server.MOTD",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Server.MOTD",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Max Player",
+        "Category": "",
+        "Description": "",
+        "Keywords": "",
+        "FieldName": "Settings.MaxPlayers",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Settings.MaxPlayers",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "12",
+        "EnumValues": {}
+    }
+]
