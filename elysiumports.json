@@ -1,14 +1,14 @@
 [
     {
         "Protocol": "Both",
-        "Port": "27015",
+        "Port": "27115",
         "Name": "",
         "Description": "Port used for main game traffic",
         "Ref": ""
     },
     {
         "Protocol": "Both",
-        "Port": "27016",
+        "Port": "27116",
         "Name": "",
         "Description": "Port used for main game traffic",
         "Ref": ""
