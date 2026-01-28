@@ -1,84 +1,100 @@
+########################################
+# Echo of Elysium – AMP Template
+# Version: 1.1 FULL
+########################################
+
+########## META ##########
 Meta.DisplayName=Elysium
-Meta.Description=
+Meta.Description=Dedicated Server for Echo of Elysium
 Meta.Arch=x86_64
-Meta.Author=rumpel - Made with AMP Config Generator
+Meta.Author=rumpel (cleaned & fixed)
 Meta.URL=https://steamdb.info/app/2644050/
+Meta.DisplayImageSource=steam:2644050
 Meta.MinAMPVersion=2.4.6.6
-Meta.SpecificDockerImage=
 Meta.DockerRequired=False
 Meta.ContainerPolicy=Supported
-Meta.ContainerPolicyReason=
-Meta.Prerequsites=[]
-Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$SteamQueryPort}
-Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
-App.AdminMethod=PinballWizard
-App.HasReadableConsole=true
-App.HasWritableConsole=true
+Meta.OS=2
+Meta.ConfigManifest=elysiumconfig.json
+Meta.MetaConfigManifest=elysiummetaconfig.json
+Meta.ConfigRoot=elysium.kvp
+
+# Richtige Endpoint-Referenz (kein Phantom-Port!)
+Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$GamePort1}
+
+########## APP BASICS ##########
+App.ID=elysium
 App.DisplayName=Elysium
+App.RootDir=./elysium/
+App.BaseDirectory=./elysium/2644050/
+App.WorkingDir=2644050
+
+########## EXECUTABLE ##########
+# Linux Dedicated Server
+App.ExecutableLinux=./ElysiumServer
+App.LinuxCommandLineArgs=--config config.json
+
+# Windows explizit deaktiviert (verhindert Generator-Bugs)
+App.ExecutableWin=
+
+########## COMMANDLINE / PARAMS ##########
 App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
-App.WindowsCommandLineArgs=
-App.CommandLineParameterFormat=-{0} "{1}"
+App.CommandLineParameterFormat=--{0} "{1}"
 App.CommandLineParameterDelimiter= 
-App.RapidStartup=false
+
+########## START / STOP ##########
+App.RapidStartup=False
 App.ApplicationReadyMode=Immediate
 App.ExitMethod=OS_CLOSE
 App.ExitString=stop
 App.ExitTimeout=30
 App.ExitFile=app_exit.lck
-App.SupportsLiveSettingsChanges=False
-App.LiveSettingChangeCommandFormat=set {0} "{1}"
-App.ApplicationIPBinding=0.0.0.0
-App.AdminPortRef=RemoteAdminPort
-App.UniversalSleepApplicationUDPPortRef=GamePort1
+App.SupportsRestart=True
+
+########## NETWORK / PORT REFS ##########
 App.PrimaryApplicationPortRef=GamePort1
+App.UniversalSleepApplicationUDPPortRef=GamePort1
 App.UniversalSleepSteamQueryPortRef=SteamQueryPort
-App.MaxUsers=8
-App.UseRandomAdminPassword=True
+
+########## QUERY ##########
+App.QueryProtocol=Source
+App.QueryPortRef=SteamQueryPort
+
+########## ADMIN / RCON ##########
+# Kein echtes RCON vorhanden → sauber deaktiviert
+App.AdminMethod=None
+App.AdminPortRef=
+App.UseRandomAdminPassword=False
 App.RemoteAdminPassword=
-App.AdminLoginTransform=None
-App.RCONConnectDelaySeconds=30
-App.RCONConnectRetrySeconds=15
-App.RCONHeartbeatCommand=ping
 App.RCONHeartbeatMinutes=0
-App.TelnetLoginFormat={0}
-App.SteamUpdateAnonymousLogin=True
+
+########## USERS ##########
+App.MaxUsers=8
+
+########## STEAM ##########
+App.SteamAppId=2644050
+App.SteamInstallType=Game
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceUpdate=True
+App.SteamValidateOnUpdate=False
 App.SteamForceLoginPrompt=False
-App.SupportsUniversalSleep=False
-App.WakeupMode=Any
-App.TemplateMatchRegex={{(\$?[\w]+)}}
-App.MonitorChildProcess=False
-App.MonitorChildProcessWaitMs=1000
-App.MonitorChildProcessName=
-App.Compatibility=None
-App.SteamWorkshopDownloadLocation={{$FullBaseDir}}undefined
-Console.FilterMatchRegex=
-Console.FilterMatchReplacement=
-Console.ThrowawayMessageRegex=(WARNING|ERROR): Shader.+
-Console.UpdateAvailableRegex=^\[\d\d:\d\d:\d\d\] \[INFO\] A new server update is available! v[\d\.]+.$
-Console.SuppressLogAtStart=False
-Console.ActivateLogRegex=
-Console.UserActions={}
-Console.SleepMode=False
-Console.SleepOnStart=False
-Console.SleepDelayMinutes=5
-Console.DozeDelay=2
-Console.AutoRetryCount=5
-Console.SleepStartThresholdSeconds=25
-Console.AppReadyRegex=^$
-Console.UserJoinRegex=^$
-Console.UserLeaveRegex=^$
-Console.UserChatRegex=^$
-Meta.OS=2
-Meta.ConfigManifest=elysiumconfig.json
-Meta.MetaConfigManifest=elysiummetaconfig.json
-Meta.ConfigRoot=elysium.kvp
-App.RootDir=./elysium/
-Meta.DisplayImageSource=steam:2644050
-App.BaseDirectory=./elysium/2644050/
-App.WorkingDir=2644050
-App.ExecutableWin=2644050\StarRuptureServerEOS.exe
-App.ExecutableLinux=2644050/./ElysiumServer --config config.json
-App.LinuxCommandLineArgs=
+
+########## UPDATE / FILES ##########
 App.Ports=@IncludeJson[elysiumports.json]
 App.UpdateSources=@IncludeJson[elysiumupdates.json]
-App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all"}
+
+########## ENVIRONMENT ##########
+App.EnvironmentVariables={
+  "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%"
+}
+
+########## CONSOLE ##########
+App.HasReadableConsole=True
+App.HasWritableConsole=True
+Console.SuppressLogAtStart=False
+Console.ThrowawayMessageRegex=(WARNING|ERROR): Shader.+
+Console.UpdateAvailableRegex=^\[\d\d:\d\d:\d\d\] \[INFO\] A new server update is available! v[\d\.]+.$
+
+########## SLEEP ##########
+App.SupportsUniversalSleep=False
+Console.SleepMode=False
+Console.SleepOnStart=False
