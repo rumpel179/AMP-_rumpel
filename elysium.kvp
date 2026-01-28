@@ -11,6 +11,7 @@ Meta.Author=rumpel (cleaned & fixed)
 Meta.URL=https://steamdb.info/app/2644050/
 Meta.DisplayImageSource=steam:2644050
 Meta.MinAMPVersion=2.4.6.6
+Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
 Meta.DockerRequired=False
 Meta.ContainerPolicy=Supported
 Meta.OS=2
