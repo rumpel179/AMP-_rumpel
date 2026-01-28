@@ -1,6 +1,6 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.1 FULL – Wine/Proton + XVFB
+# Version: 1.1 FULL – Proton + XVFB
 ########################################
 
 ########## META ##########
@@ -28,9 +28,9 @@ App.BaseDirectory=./elysium/2644050/
 App.WorkingDir=2644050
 
 ########## EXECUTABLE ##########
-# Linux Dedicated Server mit XVFB + Wine/Proton
+# Linux Dedicated Server mit Proton + XVFB
 App.ExecutableLinux=/usr/bin/xvfb-run
-App.LinuxCommandLineArgs=wine ./ElysiumServer --config config.json
+App.LinuxCommandLineArgs=proton run ./ElysiumServer --config config.json
 
 # Windows explizit deaktiviert (verhindert Generator-Bugs)
 App.ExecutableWin=
