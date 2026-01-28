@@ -1,6 +1,6 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.1 FULL
+# Version: 1.1 FULL – Wine/Proton + XVFB
 ########################################
 
 ########## META ##########
@@ -18,8 +18,6 @@ Meta.OS=2
 Meta.ConfigManifest=elysiumconfig.json
 Meta.MetaConfigManifest=elysiummetaconfig.json
 Meta.ConfigRoot=elysium.kvp
-
-# Richtige Endpoint-Referenz (kein Phantom-Port!)
 Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$GamePort1}
 
 ########## APP BASICS ##########
@@ -30,9 +28,9 @@ App.BaseDirectory=./elysium/2644050/
 App.WorkingDir=2644050
 
 ########## EXECUTABLE ##########
-# Linux Dedicated Server
-App.ExecutableLinux=./ElysiumServer
-App.LinuxCommandLineArgs=--config config.json
+# Linux Dedicated Server mit XVFB + Wine/Proton
+App.ExecutableLinux=/usr/bin/xvfb-run
+App.LinuxCommandLineArgs=wine ./ElysiumServer --config config.json
 
 # Windows explizit deaktiviert (verhindert Generator-Bugs)
 App.ExecutableWin=
@@ -61,7 +59,6 @@ App.QueryProtocol=Source
 App.QueryPortRef=SteamQueryPort
 
 ########## ADMIN / RCON ##########
-# Kein echtes RCON vorhanden → sauber deaktiviert
 App.AdminMethod=None
 App.AdminPortRef=
 App.UseRandomAdminPassword=False
@@ -85,7 +82,9 @@ App.UpdateSources=@IncludeJson[elysiumupdates.json]
 
 ########## ENVIRONMENT ##########
 App.EnvironmentVariables={
-  "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%"
+  "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%",
+  "DISPLAY": ":99",
+  "WINEPREFIX": "{{$FullBaseDir}}wineprefix"
 }
 
 ########## CONSOLE ##########
