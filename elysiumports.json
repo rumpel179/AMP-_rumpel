@@ -4,13 +4,13 @@
         "Port": "27015",
         "Name": "game",
         "Description": "Main game port",
-        "Ref": ""
+        "Ref": "game"
     },
     {
         "Protocol": "Both",
         "Port": "27016",
         "Name": "query",
-        "Description": "Query / secondary game port",
-        "Ref": ""
+        "Description": "Query port",
+        "Ref": "query"
     }
 ]
