@@ -1,13 +1,13 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.1 FULL – Proton Headless (basierend auf Docker-Setup)
+# Version: 1.1 FULL – Proton Headless, No Auto-Update
 ########################################
 
 ########## META ##########
 Meta.DisplayName=Elysium
 Meta.Description=Dedicated Server for Echo of Elysium
 Meta.Arch=x86_64
-Meta.Author=rumpel (Docker->VWB angepasst)
+Meta.Author=rumpel (Proton-Optimized)
 Meta.URL=https://steamdb.info/app/2644050/
 Meta.DisplayImageSource=steam:2644050
 Meta.MinAMPVersion=2.4.6.6
@@ -28,11 +28,11 @@ App.BaseDirectory=./elysium/2644050/
 App.WorkingDir=2644050
 
 ########## EXECUTABLE ##########
-# Linux Dedicated Server – Proton Headless, nach Docker-Struktur
+# Linux Dedicated Server – Proton Headless
 App.ExecutableLinux=proton
 App.LinuxCommandLineArgs=run ./ElysiumServer --config config.json
 
-# Windows explizit deaktiviert (verhindert Generator-Bugs)
+# Windows explizit deaktiviert
 App.ExecutableWin=
 
 ########## COMMANDLINE / PARAMS ##########
@@ -72,7 +72,7 @@ App.MaxUsers=8
 App.SteamAppId=2644050
 App.SteamInstallType=Game
 App.SteamUpdateAnonymousLogin=False
-App.SteamForceUpdate=True
+App.SteamForceUpdate=False
 App.SteamValidateOnUpdate=False
 App.SteamForceLoginPrompt=False
 
