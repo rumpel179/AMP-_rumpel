@@ -1,16 +1,16 @@
 [
     {
         "Protocol": "Both",
-        "Port": "27115",
-        "Name": "",
-        "Description": "Port used for main game traffic",
+        "Port": "27015",
+        "Name": "game",
+        "Description": "Main game port",
         "Ref": ""
     },
     {
         "Protocol": "Both",
-        "Port": "27116",
-        "Name": "",
-        "Description": "Port used for main game traffic",
+        "Port": "27016",
+        "Name": "query",
+        "Description": "Query / secondary game port",
         "Ref": ""
     }
 ]
