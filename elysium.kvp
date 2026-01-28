@@ -1,6 +1,6 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.1 FULL – Proton + XVFB
+# Version: 1.1 FULL – Proton Headless
 ########################################
 
 ########## META ##########
@@ -28,9 +28,9 @@ App.BaseDirectory=./elysium/2644050/
 App.WorkingDir=2644050
 
 ########## EXECUTABLE ##########
-# Linux Dedicated Server mit Proton + XVFB
-App.ExecutableLinux=/usr/bin/xvfb-run
-App.LinuxCommandLineArgs=proton run ./ElysiumServer --config config.json
+# Linux Dedicated Server – Proton Headless
+App.ExecutableLinux=proton
+App.LinuxCommandLineArgs=run ./ElysiumServer --config config.json
 
 # Windows explizit deaktiviert (verhindert Generator-Bugs)
 App.ExecutableWin=
@@ -83,7 +83,6 @@ App.UpdateSources=@IncludeJson[elysiumupdates.json]
 ########## ENVIRONMENT ##########
 App.EnvironmentVariables={
   "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%",
-  "DISPLAY": ":99",
   "WINEPREFIX": "{{$FullBaseDir}}wineprefix"
 }
 
