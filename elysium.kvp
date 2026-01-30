@@ -1,14 +1,14 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.1 FULL – Proton Headless, No Auto-Update
-#by rumpel / GameServer-Install.de
+# Version: 1.2 FINAL – Wine Headless
+# by rumpel / GameServer-Install.de
 ########################################
 
 ########## META ##########
-Meta.DisplayName=Elysium
-Meta.Description=Dedicated Server for Echo of Elysium
+Meta.DisplayName=Echo of Elysium
+Meta.Description=Dedicated Server for Echo of Elysium (Wine, No Docker)
 Meta.Arch=x86_64
-Meta.Author=rumpel (Proton-Optimized)
+Meta.Author=rumpel
 Meta.URL=https://steamdb.info/app/2644050/
 Meta.DisplayImageSource=steam:2644050
 Meta.MinAMPVersion=2.4.6.6
@@ -23,23 +23,16 @@ Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$GamePort1}
 
 ########## APP BASICS ##########
 App.ID=elysium
-App.DisplayName=Elysium
+App.DisplayName=Echo of Elysium
 App.RootDir=./elysium/
 App.BaseDirectory=./elysium/2644050/
 App.WorkingDir=2644050
 
 ########## EXECUTABLE ##########
-# Linux Dedicated Server – Proton Headless
-App.ExecutableLinux=proton
-App.LinuxCommandLineArgs=run ./start.sh --config config.json
-
-# Windows explizit deaktiviert
+# AMP startet ausschließlich das Script
+App.ExecutableLinux=./start.sh
+App.LinuxCommandLineArgs=
 App.ExecutableWin=
-
-########## COMMANDLINE / PARAMS ##########
-App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
-App.CommandLineParameterFormat=--{0} "{1}"
-App.CommandLineParameterDelimiter= 
 
 ########## START / STOP ##########
 App.RapidStartup=False
@@ -47,24 +40,14 @@ App.ApplicationReadyMode=Immediate
 App.ExitMethod=OS_CLOSE
 App.ExitString=stop
 App.ExitTimeout=30
-App.ExitFile=app_exit.lck
 App.SupportsRestart=True
 
-########## NETWORK / PORT REFS ##########
+########## NETWORK ##########
 App.PrimaryApplicationPortRef=GamePort1
 App.UniversalSleepApplicationUDPPortRef=GamePort1
 App.UniversalSleepSteamQueryPortRef=SteamQueryPort
-
-########## QUERY ##########
 App.QueryProtocol=Source
 App.QueryPortRef=SteamQueryPort
-
-########## ADMIN / RCON ##########
-App.AdminMethod=None
-App.AdminPortRef=
-App.UseRandomAdminPassword=False
-App.RemoteAdminPassword=
-App.RCONHeartbeatMinutes=0
 
 ########## USERS ##########
 App.MaxUsers=8
@@ -72,30 +55,44 @@ App.MaxUsers=8
 ########## STEAM ##########
 App.SteamAppId=2644050
 App.SteamInstallType=Game
-App.SteamUpdateAnonymousLogin=False
 App.SteamForceUpdate=False
 App.SteamValidateOnUpdate=False
 App.SteamForceLoginPrompt=False
 
-########## UPDATE / FILES ##########
+########## FILES / UPDATES ##########
 App.Ports=@IncludeJson[elysiumports.json]
 App.UpdateSources=@IncludeJson[elysiumupdates.json]
 
 ########## ENVIRONMENT ##########
 App.EnvironmentVariables={
-  "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%",
-  "SteamAppId": "2644050",
-  "WINEPREFIX": "{{$FullBaseDir}}wineprefix"
+  "SteamAppId": "2644050"
 }
 
 ########## CONSOLE ##########
 App.HasReadableConsole=True
 App.HasWritableConsole=True
 Console.SuppressLogAtStart=False
-Console.ThrowawayMessageRegex=(WARNING|ERROR): Shader.+
-Console.UpdateAvailableRegex=^\[\d\d:\d\d:\d\d\] \[INFO\] A new server update is available! v[\d\.]+.$
 
-########## SLEEP ##########
-App.SupportsUniversalSleep=False
-Console.SleepMode=False
-Console.SleepOnStart=False
+########## INSTALL / POST-INSTALL ##########
+App.PostInstallScript=
+cat << 'EOF' > start.sh
+#!/bin/bash
+
+# Wine Prefix für diesen Server
+export WINEPREFIX="{{ $FullBaseDir }}wineprefix"
+export WINEDEBUG="-all"
+
+# Sicherstellen, dass wir im Server-Verzeichnis sind
+cd "{{ $FullBaseDir }}" || exit 1
+
+# Wine prüfen
+if ! command -v wine >/dev/null 2>&1; then
+  echo "Wine is not installed!"
+  exit 1
+fi
+
+# Server starten
+wine ElysiumServer.exe
+EOF
+
+chmod +x start.sh
