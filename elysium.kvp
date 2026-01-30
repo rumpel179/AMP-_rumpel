@@ -31,7 +31,7 @@ App.WorkingDir=2644050
 ########## EXECUTABLE ##########
 # Linux Dedicated Server – Proton Headless
 App.ExecutableLinux=proton
-App.LinuxCommandLineArgs=run ./ElysiumServer --config config.json
+App.LinuxCommandLineArgs=run ./start.sh --config config.json
 
 # Windows explizit deaktiviert
 App.ExecutableWin=
