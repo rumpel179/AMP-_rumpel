@@ -1,12 +1,12 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.2 FINAL – Wine Headless
+# Version: 1.3 FINAL – Wine + Steam Login
 # by rumpel / GameServer-Install.de
 ########################################
 
 ########## META ##########
 Meta.DisplayName=Echo of Elysium
-Meta.Description=Dedicated Server for Echo of Elysium (Wine, No Docker)
+Meta.Description=Dedicated Server for Echo of Elysium (Wine, Steam Login Required)
 Meta.Arch=x86_64
 Meta.Author=rumpel
 Meta.URL=https://steamdb.info/app/2644050/
@@ -55,9 +55,12 @@ App.MaxUsers=8
 ########## STEAM ##########
 App.SteamAppId=2644050
 App.SteamInstallType=Game
+
+# 🔴 WICHTIG: Spiel hat KEINEN anonymen Server
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceLoginPrompt=True
+App.SteamValidateOnUpdate=True
 App.SteamForceUpdate=False
-App.SteamValidateOnUpdate=False
-App.SteamForceLoginPrompt=False
 
 ########## FILES / UPDATES ##########
 App.Ports=@IncludeJson[elysiumports.json]
@@ -78,7 +81,7 @@ App.PostInstallScript=
 cat << 'EOF' > start.sh
 #!/bin/bash
 
-# Wine Prefix für diesen Server
+# Eigener Wine-Prefix für diese Instanz
 export WINEPREFIX="{{ $FullBaseDir }}wineprefix"
 export WINEDEBUG="-all"
 
@@ -87,11 +90,11 @@ cd "{{ $FullBaseDir }}" || exit 1
 
 # Wine prüfen
 if ! command -v wine >/dev/null 2>&1; then
-  echo "Wine is not installed!"
+  echo "ERROR: Wine is not installed on the host!"
   exit 1
 fi
 
-# Server starten
+# Start des Servers
 wine ElysiumServer.exe
 EOF
 
