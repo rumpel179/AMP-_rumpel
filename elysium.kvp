@@ -1,12 +1,12 @@
 ########################################
 # Echo of Elysium – AMP Template
-# Version: 1.4 FINAL – Wine + Stable Start + Steam Login
+# Version: 1.5 FINAL – Wine + Stable Start + Steam Login
 # by rumpel / GameServer-Install.de
 ########################################
 
 ########## META ##########
 Meta.DisplayName=Echo of Elysium
-Meta.Description=Dedicated Server for Echo of Elysium (Wine, Headless, No Update Loop)
+Meta.Description=Dedicated Server for Echo of Elysium (Wine, Headless, Steam Login Required, No Update Loop)
 Meta.Arch=x86_64
 Meta.Author=rumpel
 Meta.URL=https://steamdb.info/app/2644050/
@@ -79,7 +79,7 @@ App.PostInstallScript=
 cat << 'EOF' > start.sh
 #!/bin/bash
 
-# Eigener Wine-Prefix für diese Instanz
+# Wine-Prefix für diese Instanz
 export WINEPREFIX="{{ $FullBaseDir }}wineprefix"
 export WINEDEBUG="-all"
 
