@@ -27,6 +27,7 @@ Meta.BreakingReleaseNotes=
 Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
 Meta.ImportableExtensions=[]
 Meta.AppIsMultiIPAware=True
+
 App.DisplayName=Echo of Elysium
 App.RootDir=./elysium//
 App.BaseDirectory=./elysium//2644050/
@@ -36,7 +37,7 @@ App.ExecutableLinux=/usr/bin/wine
 App.WorkingDir=2644050
 App.LinuxCommandLineArgs="./Elysium.exe"
 App.WindowsCommandLineArgs=
-App.CommandLineArgs={{$PlatformArgs}} Elysium -stdout -FullStdOutLogOutput {{useperfthreads}}{{NoAsyncLoadingThread}}{{useallavailablecores}}{{LANOnly}}{{UseLocalIPs}} -Port={{$GamePort}} -QueryPort={{$QueryPort}} -MultiHome={{$ApplicationIPBinding}} -SteamServerName="{{ServerName}}"  
+App.CommandLineArgs={{$PlatformArgs}} Elysium -stdout -FullStdOutLogOutput {{useperfthreads}}{{NoAsyncLoadingThread}}{{useallavailablecores}}{{LANOnly}}{{UseLocalIPs}} -Port={{$GamePort}} -QueryPort={{$QueryPort}} -MultiHome={{$ApplicationIPBinding}} -SteamServerName="{{ServerName}}"
 App.UseLinuxIOREDIR=False
 App.AppSettings={}
 App.EnvironmentVariables={"SteamAppId":"2644050","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all","XDG_RUNTIME_DIR":"/tmp","WINEDLLOVERRIDES":"version.dll=n,b"}
@@ -78,7 +79,10 @@ App.UserActions=[]
 App.ForceUpdate=False
 App.ForceUpdateReason=
 App.Compatibility=None
-App.SteamUpdateAnonymousLogin=True
+
+; >>> EINZIGE ÄNDERUNG FÜR STEAM-LOGIN <<<
+App.SteamUpdateAnonymousLogin=False
+
 App.SteamForceLoginPrompt=False
 App.RapidStartup=False
 App.SmartExcludeExemptions=["*.cfg","*.conf","*.config","*.ini","*.json","*.xml","*.properties","*.kvp","*.yml","*.yaml","*.toml","*.lua"]
@@ -89,6 +93,7 @@ App.SupportsUniversalSleep=False
 App.WakeupMode=Any
 App.ApplicationReadyMode=RegexMatch
 App.TemplateMatchRegex={{(!?(?<Platform>Linux|Windows|All):)?(?<Value>\$?[\w]+)}}
+
 Console.FilterMatchRegex=
 Console.FilterMatchReplacement=
 Console.ThrowawayMessageRegex=^(WARNING|ERROR): Shader.+$
@@ -101,6 +106,7 @@ Console.MetricsRegex=
 Console.SuppressLogAtStart=False
 Console.ActivateLogRegex=
 Console.UserActions={}
+
 Limits.SleepMode=False
 Limits.SleepOnStart=False
 Limits.SleepDelayMinutes=5
