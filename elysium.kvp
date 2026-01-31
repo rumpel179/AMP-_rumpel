@@ -16,7 +16,10 @@ Meta.DockerRequired=False
 Meta.DockerBaseReadOnly=False
 Meta.ContainerPolicy=SupportedOnWindows, RecommendedOnLinux
 Meta.ContainerPolicyReason=The server requires Wine (ideally latest stable from winehq.org) to run on Linux.
+
+; Vorbereitungen / Setup-Datei (Optional)
 Meta.ExtraSetupStepsURI=@IncludeJson[elysiumsetup.json]
+
 Meta.Prerequisites=[]
 Meta.ExtraContainerPackages=[]
 Meta.ConfigReleaseState=NotSpecified
@@ -85,108 +88,15 @@ App.DumpFullChildProcessTree=False
 App.MonitorChildProcessName=Elysium\.exe
 App.MonitorDirectChildOnly=False
 
-App.SupportsUniversalSleep=False
-App.WakeupMode=Any
-App.ApplicationReadyMode=RegexMatch
-
-Console.ThrowawayMessageRegex=^(WARNING|ERROR): Shader.+$
-Console.AppReadyRegex=LogOnlineSession: Display: OSS: Session creation completed
-Console.UserJoinRegex=has entered the facility
-Console.UserLeaveRegex=has exited the facility
-Console.UserChatRegex=CHAT LOG:
-
-Limits.SleepMode=False
-Limits.SleepOnStart=False
-Limits.SleepDelayMinutes=5
-Limits.DozeDelay=2
-Limits.AutoRetryCount=2
-Limits.SleepStartThresholdSeconds=25
-Meta.DisplayName=Echo of Elysium
-Meta.Description=Echo of Elysium Dedicated Server
-Meta.OS=Windows, Linux
-Meta.AarchSupport=Unknown
-Meta.Arch=x86_64
-Meta.Author=rumpel
-Meta.URL=https://steamdb.info/app/2644050/
-Meta.DisplayImageSource=steam:2644050
-Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$QueryPort}
-Meta.ConfigManifest=elysiumconfig.json
-Meta.MetaConfigManifest=elysiumconfig.json
-Meta.ConfigRoot=elysium.kvp
-Meta.MinAMPVersion=2.4.6.6
-Meta.SpecificDockerImage=cubecoders/ampbase:wine-stable
-Meta.DockerRequired=False
-Meta.DockerBaseReadOnly=False
-Meta.ContainerPolicy=SupportedOnWindows, RecommendedOnLinux
-Meta.ContainerPolicyReason=The server requires Wine (ideally latest stable from winehq.org) to run on Linux.
-Meta.ExtraSetupStepsURI=@IncludeJson[elysiumsetup.json]
-Meta.Prerequisites=[]
-Meta.ExtraContainerPackages=[]
-Meta.ConfigReleaseState=NotSpecified
-Meta.NoCommercialUsage=False
-Meta.ConfigVersion=8
-Meta.ReleaseNotes=
-Meta.BreakingReleaseNotes=
-Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
-Meta.ImportableExtensions=[]
-Meta.AppIsMultiIPAware=True
-
-App.DisplayName=Echo of Elysium
-App.RootDir=./elysium
-App.BaseDirectory=./elysium/2644050
-App.SteamWorkshopDownloadLocation=
-
-App.ExecutableWin=Elysium.exe
-App.ExecutableLinux=/usr/bin/wine
-App.WorkingDir=./elysium/2644050
-
-App.LinuxCommandLineArgs="Elysium.exe"
-App.WindowsCommandLineArgs=
-
-App.CommandLineArgs={{$PlatformArgs}} -stdout -FullStdOutLogOutput {{useperfthreads}}{{NoAsyncLoadingThread}}{{useallavailablecores}}{{LANOnly}}{{UseLocalIPs}} -Port={{$GamePort}} -QueryPort={{$QueryPort}} -MultiHome={{$ApplicationIPBinding}} -SteamServerName="{{ServerName}}"
-
-App.UseLinuxIOREDIR=False
-App.AppSettings={}
-App.EnvironmentVariables={"SteamAppId":"2644050","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all","XDG_RUNTIME_DIR":"/tmp","WINEDLLOVERRIDES":"version.dll=n,b"}
-
-App.CommandLineParameterFormat=-{0}={1}
-App.CommandLineParameterDelimiter= 
-App.ExitMethod=OS_CLOSE
-App.ExitTimeout=30
-App.ExitString=stop
-App.ExitFile=app_exit.lck
-App.HasWriteableConsole=True
-App.HasReadableConsole=True
-App.UDPLogger=False
-App.SupportsLiveSettingsChanges=False
-App.LiveSettingChangeCommandFormat=set {0} "{1}"
-
-App.ForceIPBinding=False
-App.SupportsIPv6=False
-App.ApplicationIPBinding=0.0.0.0
-
-App.Ports=@IncludeJson[elysiumports.json]
-App.AdminPortRef=0
-App.PrimaryApplicationPortRef=GamePort
-
-App.MaxUsers=32
-App.UseRandomAdminPassword=False
-App.PersistRandomPassword=False
-App.RemoteAdminPassword=Password123
-App.AdminMethod=STDIO
-
-App.UpdateSources=@IncludeJson[elysiumupdates.json]
-
-; Steam Login fix
-App.SteamUpdateAnonymousLogin=False
-App.SteamForceLoginPrompt=False
-
-App.RapidStartup=False
-App.SmartExcludeExemptions=["*.cfg","*.conf","*.config","*.ini","*.json","*.xml","*.properties","*.kvp","*.yml","*.yaml","*.toml","*.lua"]
-
-App.DumpFullChildProcessTree=False
-App.MonitorChildProcessName=Elysium\.exe
-App.MonitorDirectChildOnly=False
+; PreStartStages - setzen Berechtigungen nach Installation
+App.PreStartStages=@InlineJson[
+[
+    {
+        "Command": "chmod +x ./2644050/Elysium.exe",
+        "Description": "Ensure execute permission for main server binary after install"
+    }
+]
+]
 
 App.SupportsUniversalSleep=False
 App.WakeupMode=Any
