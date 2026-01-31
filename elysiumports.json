@@ -1,16 +1,16 @@
 [
     {
-        "Protocol": "Both",
-        "Port": "27015",
-        "Name": "game",
-        "Description": "Main game port",
-        "Ref": "game"
+        "Protocol": "UDP",
+        "Port": 7777,
+        "Ref": "GamePort",
+        "Name": "Game Port",
+        "Description": "Port for main game traffic"
     },
     {
-        "Protocol": "Both",
-        "Port": "27016",
-        "Name": "query",
-        "Description": "Query port",
-        "Ref": "query"
+        "Protocol": "UDP",
+        "Port": 27015,
+        "Ref": "QueryPort",
+        "Name": "Query Port",
+        "Description": "Port for query traffic"
     }
 ]
