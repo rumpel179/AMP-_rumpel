@@ -59,7 +59,7 @@ App.SupportsLiveSettingsChanges=False
 App.LiveSettingChangeCommandFormat=set {0} "{1}"
 
 App.ForceIPBinding=False
-App.SupportsIPv6=True
+App.SupportsIPv6=False
 App.ApplicationIPBinding=0.0.0.0
 
 App.Ports=@IncludeJson[elysiumports.json]
@@ -74,6 +74,7 @@ App.AdminMethod=STDIO
 
 App.UpdateSources=@IncludeJson[elysiumupdates.json]
 
+; Steam Login fix
 App.SteamUpdateAnonymousLogin=False
 App.SteamForceLoginPrompt=False
 
@@ -161,7 +162,7 @@ App.SupportsLiveSettingsChanges=False
 App.LiveSettingChangeCommandFormat=set {0} "{1}"
 
 App.ForceIPBinding=False
-App.SupportsIPv6=True
+App.SupportsIPv6=False
 App.ApplicationIPBinding=0.0.0.0
 
 App.Ports=@IncludeJson[elysiumports.json]
@@ -176,6 +177,7 @@ App.AdminMethod=STDIO
 
 App.UpdateSources=@IncludeJson[elysiumupdates.json]
 
+; Steam Login fix
 App.SteamUpdateAnonymousLogin=False
 App.SteamForceLoginPrompt=False
 
