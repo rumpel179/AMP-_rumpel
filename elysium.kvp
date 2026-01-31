@@ -1,99 +1,217 @@
-########################################
-# Echo of Elysium – AMP Template
-# Version: 1.5 FINAL – Wine + Stable Start + Steam Login
-# by rumpel / GameServer-Install.de
-########################################
-
-########## META ##########
 Meta.DisplayName=Echo of Elysium
-Meta.Description=Dedicated Server for Echo of Elysium (Wine, Headless, Steam Login Required, No Update Loop)
+Meta.Description=Echo of Elysium Dedicated Server
+Meta.OS=Windows, Linux
+Meta.AarchSupport=Unknown
 Meta.Arch=x86_64
 Meta.Author=rumpel
 Meta.URL=https://steamdb.info/app/2644050/
 Meta.DisplayImageSource=steam:2644050
-Meta.MinAMPVersion=2.4.6.6
-Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
-Meta.DockerRequired=False
-Meta.ContainerPolicy=Supported
-Meta.OS=2
+Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$QueryPort}
 Meta.ConfigManifest=elysiumconfig.json
-Meta.MetaConfigManifest=elysiummetaconfig.json
+Meta.MetaConfigManifest=elysiumconfig.json
 Meta.ConfigRoot=elysium.kvp
-Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$GamePort1}
-
-########## APP BASICS ##########
-App.ID=elysium
+Meta.MinAMPVersion=2.4.6.6
+Meta.SpecificDockerImage=cubecoders/ampbase:wine-stable
+Meta.DockerRequired=False
+Meta.DockerBaseReadOnly=False
+Meta.ContainerPolicy=SupportedOnWindows, RecommendedOnLinux
+Meta.ContainerPolicyReason=The server requires Wine (ideally latest stable from winehq.org) to run on Linux. Using a container avoids the need for you to install this dependency on the host.
+Meta.ExtraSetupStepsURI=
+Meta.Prerequisites=[]
+Meta.ExtraContainerPackages=[]
+Meta.ConfigReleaseState=NotSpecified
+Meta.NoCommercialUsage=False
+Meta.ConfigVersion=8
+Meta.ReleaseNotes=
+Meta.BreakingReleaseNotes=
+Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
+Meta.ImportableExtensions=[]
+Meta.AppIsMultiIPAware=True
 App.DisplayName=Echo of Elysium
-App.RootDir=./elysium/
-App.BaseDirectory=./elysium/2644050/
+App.RootDir=./elysium//
+App.BaseDirectory=./elysium//2644050/
+App.SteamWorkshopDownloadLocation=
+App.ExecutableWin=2644050\Elysium.exe
+App.ExecutableLinux=/usr/bin/wine
 App.WorkingDir=2644050
-
-########## EXECUTABLE ##########
-# AMP startet nur das Script
-App.ExecutableLinux=./start.sh
-App.LinuxCommandLineArgs=
-App.ExecutableWin=
-
-########## START / STOP ##########
-App.RapidStartup=False
-App.ApplicationReadyMode=Manual
+App.LinuxCommandLineArgs="./Elysium.exe"
+App.WindowsCommandLineArgs=
+App.CommandLineArgs={{$PlatformArgs}} Elysium -stdout -FullStdOutLogOutput {{useperfthreads}}{{NoAsyncLoadingThread}}{{useallavailablecores}}{{LANOnly}}{{UseLocalIPs}} -Port={{$GamePort}} -QueryPort={{$QueryPort}} -MultiHome={{$ApplicationIPBinding}} -SteamServerName="{{ServerName}}"  
+App.UseLinuxIOREDIR=False
+App.AppSettings={}
+App.EnvironmentVariables={"SteamAppId":"2644050","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all","XDG_RUNTIME_DIR":"/tmp","WINEDLLOVERRIDES":"version.dll=n,b"}
+App.CommandLineParameterFormat=-{0}={1}
+App.CommandLineParameterDelimiter= 
 App.ExitMethod=OS_CLOSE
-App.ExitString=stop
 App.ExitTimeout=30
-App.SupportsRestart=True
-
-########## NETWORK ##########
-App.PrimaryApplicationPortRef=GamePort1
-App.UniversalSleepApplicationUDPPortRef=GamePort1
-App.UniversalSleepSteamQueryPortRef=SteamQueryPort
-App.QueryProtocol=Source
-App.QueryPortRef=SteamQueryPort
-
-########## USERS ##########
-App.MaxUsers=8
-
-########## STEAM ##########
-App.SteamAppId=2644050
-App.SteamInstallType=Game
-App.SteamUpdateAnonymousLogin=False
-App.SteamForceLoginPrompt=True
-App.SteamValidateOnUpdate=False
-App.SteamForceUpdate=False
-
-########## FILES / UPDATES ##########
-App.Ports=@IncludeJson[elysiumports.json]
-App.UpdateSources=@IncludeJson[elysiumupdates.json]
-
-########## ENVIRONMENT ##########
-App.EnvironmentVariables={
-  "SteamAppId": "2644050"
-}
-
-########## CONSOLE ##########
+App.ExitString=stop
+App.ExitFile=app_exit.lck
+App.HasWriteableConsole=True
 App.HasReadableConsole=True
-App.HasWritableConsole=True
+App.UDPLogger=False
+App.SupportsLiveSettingsChanges=False
+App.LiveSettingChangeCommandFormat=set {0} "{1}"
+App.ForceIPBinding=False
+App.SupportsIPv6=True
+App.ApplicationIPBinding=0.0.0.0
+App.Ports=@IncludeJson[elysiumports.json]
+App.AdminPortRef=0
+App.PrimaryApplicationPortRef=GamePort
+App.UniversalSleepApplicationUDPPortRef=0
+App.UniversalSleepSteamQueryPortRef=0
+App.MaxUsers=32
+App.UseRandomAdminPassword=False
+App.PersistRandomPassword=False
+App.RemoteAdminPassword=Password123
+App.AdminMethod=STDIO
+App.IgnoreSTDOUTAfterRCON=False
+App.AdminLoginTransform=None
+App.LoginTransformPrefix=
+App.RCONConnectDelaySeconds=5
+App.RCONConnectRetrySeconds=5
+App.RCONHeartbeatMinutes=0
+App.RCONHeartbeatCommand=ping
+App.TelnetLoginFormat={0}
+App.UpdateSources=@IncludeJson[elysiumupdates.json]
+App.PreStartStages=[]
+App.UserActions=[]
+App.ForceUpdate=False
+App.ForceUpdateReason=
+App.Compatibility=None
+App.SteamUpdateAnonymousLogin=True
+App.SteamForceLoginPrompt=False
+App.RapidStartup=False
+App.SmartExcludeExemptions=["*.cfg","*.conf","*.config","*.ini","*.json","*.xml","*.properties","*.kvp","*.yml","*.yaml","*.toml","*.lua"]
+App.DumpFullChildProcessTree=False
+App.MonitorChildProcessName=^{{$WineBaseDir}}elysium\\Elysium\.exe.*-QueryPort={{$QueryPort}}.*$
+App.MonitorDirectChildOnly=False
+App.SupportsUniversalSleep=False
+App.WakeupMode=Any
+App.ApplicationReadyMode=RegexMatch
+App.TemplateMatchRegex={{(!?(?<Platform>Linux|Windows|All):)?(?<Value>\$?[\w]+)}}
+Console.FilterMatchRegex=
+Console.FilterMatchReplacement=
+Console.ThrowawayMessageRegex=^(WARNING|ERROR): Shader.+$
+Console.AppReadyRegex=^\[[\d.]+-[\d.:]+\]\[[\d ]+\]LogOnlineSession: Display: OSS: Session creation completed\. Automatic start is turned on, starting session now\.$
+Console.UserJoinRegex=^\[[\d\.]+-[\d\.]+:\d+\]\[[\d ]+\]LogAbiotic: Display: CHAT LOG: (?<username>.*?) has entered the facility\.$
+Console.UserLeaveRegex=^\[[\d\.]+-[\d\.]+:\d+\]\[[\d ]+\]LogAbiotic: Display: CHAT LOG: (?<username>.*?) has exited the facility\.$
+Console.UserChatRegex=^\[[\d\.]+-[\d\.]+:\d+\]\[[\d ]+\]LogAbiotic: Display: CHAT LOG: (?<username>.*?) (?<message>.*)$
+Console.UpdateAvailableRegex=^\[\d\d:\d\d:\d\d\] \[INFO\] A new server update is available! v[\d\.]+.$
+Console.MetricsRegex=
 Console.SuppressLogAtStart=False
-
-########## INSTALL / POST-INSTALL ##########
-App.PostInstallScript=
-cat << 'EOF' > start.sh
-#!/bin/bash
-
-# Wine-Prefix für diese Instanz
-export WINEPREFIX="{{ $FullBaseDir }}wineprefix"
-export WINEDEBUG="-all"
-
-# Sicherstellen, dass wir im Server-Verzeichnis sind
-cd "{{ $FullBaseDir }}" || exit 1
-
-# Wine prüfen
-if ! command -v wine >/dev/null 2>&1; then
-  echo "ERROR: Wine is not installed on the host!"
-  exit 1
-fi
-
-# Server starten
-wine ElysiumServer.exe
-EOF
-
-chmod +x start.sh
+Console.ActivateLogRegex=
+Console.UserActions={}
+Limits.SleepMode=False
+Limits.SleepOnStart=False
+Limits.SleepDelayMinutes=5
+Limits.DozeDelay=2
+Limits.AutoRetryCount=2
+Limits.SleepStartThresholdSeconds=25Meta.DisplayName=Echo of Elysium
+Meta.Description=Echo of Elysium Dedicated Server
+Meta.OS=Windows, Linux
+Meta.AarchSupport=Unknown
+Meta.Arch=x86_64
+Meta.Author=rumpel
+Meta.URL=https://steamdb.info/app/2644050/
+Meta.DisplayImageSource=steam:2644050
+Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$QueryPort}
+Meta.ConfigManifest=elysiumconfig.json
+Meta.MetaConfigManifest=elysiumconfig.json
+Meta.ConfigRoot=elysium.kvp
+Meta.MinAMPVersion=2.4.6.6
+Meta.SpecificDockerImage=cubecoders/ampbase:wine-stable
+Meta.DockerRequired=False
+Meta.DockerBaseReadOnly=False
+Meta.ContainerPolicy=SupportedOnWindows, RecommendedOnLinux
+Meta.ContainerPolicyReason=The server requires Wine (ideally latest stable from winehq.org) to run on Linux. Using a container avoids the need for you to install this dependency on the host.
+Meta.ExtraSetupStepsURI=
+Meta.Prerequisites=[]
+Meta.ExtraContainerPackages=[]
+Meta.ConfigReleaseState=NotSpecified
+Meta.NoCommercialUsage=False
+Meta.ConfigVersion=8
+Meta.ReleaseNotes=
+Meta.BreakingReleaseNotes=
+Meta.AppConfigId=3497bdb1-9863-4c38-9de6-0230a40f1727
+Meta.ImportableExtensions=[]
+Meta.AppIsMultiIPAware=True
+App.DisplayName=Echo of Elysium
+App.RootDir=./elysium//
+App.BaseDirectory=./elysium//2644050/
+App.SteamWorkshopDownloadLocation=
+App.ExecutableWin=2644050\Elysium.exe
+App.ExecutableLinux=/usr/bin/wine
+App.WorkingDir=2644050
+App.LinuxCommandLineArgs="./Elysium.exe"
+App.WindowsCommandLineArgs=
+App.CommandLineArgs={{$PlatformArgs}} Elysium -stdout -FullStdOutLogOutput {{useperfthreads}}{{NoAsyncLoadingThread}}{{useallavailablecores}}{{LANOnly}}{{UseLocalIPs}} -Port={{$GamePort}} -QueryPort={{$QueryPort}} -MultiHome={{$ApplicationIPBinding}} -SteamServerName="{{ServerName}}"  
+App.UseLinuxIOREDIR=False
+App.AppSettings={}
+App.EnvironmentVariables={"SteamAppId":"2644050","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all","XDG_RUNTIME_DIR":"/tmp","WINEDLLOVERRIDES":"version.dll=n,b"}
+App.CommandLineParameterFormat=-{0}={1}
+App.CommandLineParameterDelimiter= 
+App.ExitMethod=OS_CLOSE
+App.ExitTimeout=30
+App.ExitString=stop
+App.ExitFile=app_exit.lck
+App.HasWriteableConsole=True
+App.HasReadableConsole=True
+App.UDPLogger=False
+App.SupportsLiveSettingsChanges=False
+App.LiveSettingChangeCommandFormat=set {0} "{1}"
+App.ForceIPBinding=False
+App.SupportsIPv6=True
+App.ApplicationIPBinding=0.0.0.0
+App.Ports=@IncludeJson[elysiumports.json]
+App.AdminPortRef=0
+App.PrimaryApplicationPortRef=GamePort
+App.UniversalSleepApplicationUDPPortRef=0
+App.UniversalSleepSteamQueryPortRef=0
+App.MaxUsers=32
+App.UseRandomAdminPassword=False
+App.PersistRandomPassword=False
+App.RemoteAdminPassword=Password123
+App.AdminMethod=STDIO
+App.IgnoreSTDOUTAfterRCON=False
+App.AdminLoginTransform=None
+App.LoginTransformPrefix=
+App.RCONConnectDelaySeconds=5
+App.RCONConnectRetrySeconds=5
+App.RCONHeartbeatMinutes=0
+App.RCONHeartbeatCommand=ping
+App.TelnetLoginFormat={0}
+App.UpdateSources=@IncludeJson[elysiumupdates.json]
+App.PreStartStages=[]
+App.UserActions=[]
+App.ForceUpdate=False
+App.ForceUpdateReason=
+App.Compatibility=None
+App.SteamUpdateAnonymousLogin=True
+App.SteamForceLoginPrompt=False
+App.RapidStartup=False
+App.SmartExcludeExemptions=["*.cfg","*.conf","*.config","*.ini","*.json","*.xml","*.properties","*.kvp","*.yml","*.yaml","*.toml","*.lua"]
+App.DumpFullChildProcessTree=False
+App.MonitorChildProcessName=^{{$WineBaseDir}}elysium\\Elysium\.exe.*-QueryPort={{$QueryPort}}.*$
+App.MonitorDirectChildOnly=False
+App.SupportsUniversalSleep=False
+App.WakeupMode=Any
+App.ApplicationReadyMode=RegexMatch
+App.TemplateMatchRegex={{(!?(?<Platform>Linux|Windows|All):)?(?<Value>\$?[\w]+)}}
+Console.FilterMatchRegex=
+Console.FilterMatchReplacement=
+Console.ThrowawayMessageRegex=^(WARNING|ERROR): Shader.+$
+Console.AppReadyRegex=^\[[\d.]+-[\d.:]+\]\[[\d ]+\]LogOnlineSession: Display: OSS: Session creation completed\. Automatic start is turned on, starting session now\.$
+Console.UserJoinRegex=^\[[\d\.]+-[\d\.]+:\d+\]\[[\d ]+\]LogAbiotic: Display: CHAT LOG: (?<username>.*?) has entered the facility\.$
+Console.UserLeaveRegex=^\[[\d\.]+-[\d\.]+:\d+\]\[[\d ]+\]LogAbiotic: Display: CHAT LOG: (?<username>.*?) has exited the facility\.$
+Console.UserChatRegex=^\[[\d\.]+-[\d\.]+:\d+\]\[[\d ]+\]LogAbiotic: Display: CHAT LOG: (?<username>.*?) (?<message>.*)$
+Console.UpdateAvailableRegex=^\[\d\d:\d\d:\d\d\] \[INFO\] A new server update is available! v[\d\.]+.$
+Console.MetricsRegex=
+Console.SuppressLogAtStart=False
+Console.ActivateLogRegex=
+Console.UserActions={}
+Limits.SleepMode=False
+Limits.SleepOnStart=False
+Limits.SleepDelayMinutes=5
+Limits.DozeDelay=2
+Limits.AutoRetryCount=2
+Limits.SleepStartThresholdSeconds=25
