@@ -1,0 +1,10 @@
+[
+    {
+        "Command": "chmod +x ./2644050/Elysium.exe",
+        "Description": "Set execute permission for main server binary"
+    },
+    {
+        "Command": "chmod +x ./2644050/SomeHelperTool.exe",
+        "Description": "Set execute permission for helper binary"
+    }
+]
