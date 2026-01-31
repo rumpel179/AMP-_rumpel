@@ -1,14 +1,19 @@
 [
     {
-        "UpdateStageName": "",
-        "UpdateSourcePlatform": "Linux",
+        "UpdateStageName": "Elysium Download",
+        "UpdateSourcePlatform": "All",
         "UpdateSource": "SteamCMD",
         "UpdateSourceData": "2644050",
         "UpdateSourceArgs": "2644050",
-        "UnzipUpdateSource": false,
-        "OverwriteExistingFiles": false,
-        "ForceDownloadPlatform": "Linux",
-        "DeleteAfterExtract": true,
-        "OneShot": false
+        "ForceDownloadPlatform": "Windows",
+        "SkipOnFailure": false
+     },
+    {
+        "UpdateStageName": "Initialise Wine",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"rm -rf \\\"{{$FullRootDir}}.wine\\\" >/dev/null 2>&1; WINEPREFIX=\\\"{{$FullRootDir}}.wine\\\" WINEARCH=win64 WINEDEBUG=-all XDG_RUNTIME_DIR=/tmp /usr/bin/wineboot --init\"",
+        "SkipOnFailure": false
     }
 ]
