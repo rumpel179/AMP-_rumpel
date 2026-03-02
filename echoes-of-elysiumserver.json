@@ -1,0 +1,15 @@
+{
+  "serverName": "Echoes of Elysium",
+  "serverAddr": "0.0.0.0",
+  "serverPort": 27015,
+  "serverData": "./GameData",
+  "serverWorld": "./world",
+  "serverLogs": "./logs",
+  "serverPassword": "",
+  "serverProfileEnabled": false,
+  "serverSaveFrequency": 5,
+  "serverBackupsEnabled": true,
+  "serverBackupsFrequency": 30,
+  "serverMaxBackups": 5,
+  "steamChannel": "public"
+}
