@@ -1,0 +1,154 @@
+[
+  {
+    "DisplayName": "Server Name",
+    "Category": "Server Settings",
+    "Description": "The name of the server as shown in the Steam server browser.",
+    "FieldName": "ServerName",
+    "InputType": "text",
+    "DefaultValue": "Over The Top: WWI Server",
+    "Placeholder": "My WWI Server",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Server Password",
+    "Category": "Server Settings",
+    "Description": "Password required to join the server. Leave empty for a public server.",
+    "FieldName": "ServerPassword",
+    "InputType": "password",
+    "DefaultValue": "",
+    "Placeholder": "",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Max Players",
+    "Category": "Server Settings",
+    "Description": "Maximum number of players allowed on the server at once.",
+    "FieldName": "MaxPlayers",
+    "InputType": "number",
+    "DefaultValue": "64",
+    "Placeholder": "64",
+    "Suffix": "players",
+    "EnumValues": {},
+    "MinValue": 2,
+    "MaxValue": 128
+  },
+  {
+    "DisplayName": "LAN Mode",
+    "Category": "Server Settings",
+    "Description": "Makes the server only visible on the local network.",
+    "FieldName": "SVLan",
+    "InputType": "checkbox",
+    "DefaultValue": "false",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Server Region",
+    "Category": "Server Settings",
+    "Description": "The region in which this server is listed on Steam.",
+    "FieldName": "ServerRegion",
+    "InputType": "enum",
+    "DefaultValue": "255",
+    "EnumValues": {
+      "0":   "USA - East Coast",
+      "1":   "USA - West Coast",
+      "2":   "South America",
+      "3":   "Europe",
+      "4":   "Asia",
+      "5":   "Australia",
+      "6":   "Middle East",
+      "7":   "Africa",
+      "255": "World (Default)"
+    }
+  },
+  {
+    "DisplayName": "Starting Map",
+    "Category": "Gameplay",
+    "Description": "The map that loads when the server starts.",
+    "FieldName": "StartMap",
+    "InputType": "enum",
+    "DefaultValue": "Verdun",
+    "EnumValues": {
+      "Verdun":        "Verdun",
+      "Somme":         "The Somme",
+      "Passchendaele": "Passchendaele",
+      "Ypres":         "Ypres",
+      "Gallipolli":    "Gallipoli",
+      "MontSt":        "Mont St. Quentin"
+    }
+  },
+  {
+    "DisplayName": "Game Mode",
+    "Category": "Gameplay",
+    "Description": "The game mode / round type active on this server.",
+    "FieldName": "GameType",
+    "InputType": "enum",
+    "DefaultValue": "FrontlineAssault",
+    "EnumValues": {
+      "FrontlineAssault": "Frontline Assault",
+      "TeamDeathmatch":   "Team Deathmatch",
+      "Domination":       "Domination",
+      "Breakthrough":     "Breakthrough"
+    }
+  },
+  {
+    "DisplayName": "Round Time (minutes)",
+    "Category": "Gameplay",
+    "Description": "Maximum duration of a round in minutes.",
+    "FieldName": "RoundTime",
+    "InputType": "number",
+    "DefaultValue": "20",
+    "Suffix": "min",
+    "EnumValues": {},
+    "MinValue": 5,
+    "MaxValue": 90
+  },
+  {
+    "DisplayName": "Ticket Count",
+    "Category": "Gameplay",
+    "Description": "Number of respawn tickets per team.",
+    "FieldName": "TicketCount",
+    "InputType": "number",
+    "DefaultValue": "300",
+    "Suffix": "tickets",
+    "EnumValues": {},
+    "MinValue": 50,
+    "MaxValue": 2000
+  },
+  {
+    "DisplayName": "Friendly Fire",
+    "Category": "Gameplay",
+    "Description": "Enables damage dealt to teammates.",
+    "FieldName": "FriendlyFire",
+    "InputType": "checkbox",
+    "DefaultValue": "false",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Enable Vehicles",
+    "Category": "Gameplay",
+    "Description": "Allow tanks and vehicles to spawn on the map.",
+    "FieldName": "VehiclesEnabled",
+    "InputType": "checkbox",
+    "DefaultValue": "true",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "VAC Anti-Cheat",
+    "Category": "Security",
+    "Description": "Enables Valve Anti-Cheat (VAC) protection. Recommended.",
+    "FieldName": "VACEnabled",
+    "InputType": "checkbox",
+    "DefaultValue": "true",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Custom Launch Arguments",
+    "Category": "Advanced",
+    "Description": "Additional command-line arguments passed to the server at startup.",
+    "FieldName": "CustomArgs",
+    "InputType": "text",
+    "DefaultValue": "",
+    "Placeholder": "-somearg value",
+    "EnumValues": {}
+  }
+]
