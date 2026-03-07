@@ -1,0 +1,17 @@
+[
+  {
+    "UpdateStageName": "SteamCMD Download",
+    "UpdateSourcePlatform": "All",
+    "UpdateSource": "SteamCMD",
+    "UpdateSourceData": "1107551",
+    "ForceDownloadPlatform": "Windows"
+  },
+  {
+    "UpdateStageName": "Initialize Wine Prefix",
+    "UpdateSourcePlatform": "Linux",
+    "UpdateSource": "Executable",
+    "UpdateSourceData": "/usr/bin/wineboot",
+    "UpdateSourceArgs": "--init",
+    "SkipOnFailure": true
+  }
+]
