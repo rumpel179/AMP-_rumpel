@@ -3,14 +3,13 @@
     "Name": "GamePort",
     "Description": "Primary game connection port",
     "Protocol": "UDP",
-    "DefaultPort": 27015,
-    "IsApplicationPort": true
+    "DefaultPort": 27015
   },
   {
     "Name": "QueryPort",
     "Description": "Steam server browser query port",
     "Protocol": "UDP",
-    "DefaultPort": 27016,
-    "IsSteamQueryPort": true
+    "DefaultPort": 27016
   }
 ]
+
