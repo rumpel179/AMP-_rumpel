@@ -1,6 +1,0 @@
-[
-  {"UpdateStageName":"SteamCMD Download","UpdateSourcePlatform":"All","UpdateSource":"SteamCMD","UpdateSourceData":"3052620","ForceDownloadPlatform":"Windows"},
-  {"UpdateStageName":"Steamworks SDK Redist","UpdateSourcePlatform":"All","UpdateSource":"SteamCMD","UpdateSourceData":"1007","ForceDownloadPlatform":"Windows"},
-  {"UpdateStageName":"Initialize Wine Prefix","UpdateSourcePlatform":"Linux","UpdateSource":"Executable","UpdateSourceData":"/usr/bin/wineboot","UpdateSourceArgs":"--init","SkipOnFailure":true}
-]
-
