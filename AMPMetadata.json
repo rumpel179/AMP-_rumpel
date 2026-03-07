@@ -2,22 +2,5 @@
   "id": "amp-cube-coders-ott-wwi",
   "origin": "https://github.com/DEIN-GITHUB-USER/AMPTemplates",
   "url": "https://github.com/DEIN-GITHUB-USER/AMPTemplates",
-  "prefix": "OTT",
-  "feedName": "AMP Cube Coders – Over The Top: WWI",
-  "configs": [
-    {
-      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-      "DisplayName": "Over The Top: WWI",
-      "ConfigRoot": "over-the-top-wwi.kvp",
-      "OS": 3,
-      "Arch": "x86_64",
-      "Author": "AMP Cube Coders",
-      "URL": "https://store.steampowered.com/app/1107550/Over_The_Top/",
-      "NoCommercialUsage": false,
-      "SupportedPlatforms": [
-        "Windows",
-        "Linux"
-      ]
-    }
-  ]
+  "prefix": "OTT"
 }
