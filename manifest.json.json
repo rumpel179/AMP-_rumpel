@@ -1,0 +1,11 @@
+{
+    "id": "c63a064a-2fbc-4069-9335-6dbd9079d86d",
+    "authors": [
+        "rumpel179"
+    ],
+    "origin": "https://github.com/rumpel179/AMP-_rumpel.git",
+    "url": "https://github.com/rumpel179/AMP-_rumpel",
+    "imagefile": "",
+    "prefix": "rumpel - Aloft Dedicated",
+    "main_config": "aloft.kvp"
+}
