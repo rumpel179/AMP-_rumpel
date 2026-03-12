@@ -26,5 +26,7 @@ App.EnvironmentVariables={"DISPLAY":":99","STEAM_COMPAT_DATA_PATH":"{{$FullBaseD
 App.Ports=@IncludeJson[aloftports.json]
 App.PrimaryApplicationPortRef=GamePort
 App.UpdateSources=@IncludeJson[aloftupdates.json]
-App.SteamUpdateAnonymousLogin=True
-App.SteamForceLoginPrompt=False
+
+# ÄNDERUNG: Anonymer Login deaktiviert, da "No subscription" Fehler auftrat
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceLoginPrompt=True
