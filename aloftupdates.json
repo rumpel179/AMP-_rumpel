@@ -6,7 +6,7 @@
         "UpdateSourceData": "2444140",
         "UpdateSourceArgs": "2444140",
         "ForceDownloadPlatform": "Windows",
-        "SteamUpdateAnonymousLogin": true,
+        "SteamUpdateAnonymousLogin": false,
         "SkipOnFailure": false
     },
     {
