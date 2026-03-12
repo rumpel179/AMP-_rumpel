@@ -1,0 +1,14 @@
+[
+    {
+        "Protocol": "UDP",
+        "Port": 27015,
+        "Ref": "GamePort",
+        "Name": "Game Port"
+    },
+    {
+        "Protocol": "UDP",
+        "Port": 27016,
+        "Ref": "QueryPort",
+        "Name": "Query Port"
+    }
+]

@@ -1,0 +1,25 @@
+Meta.DisplayName=Aloft
+Meta.Description=Aloft Dedicated Server
+Meta.OS=Windows, Linux
+Meta.Arch=x86_64
+Meta.Author=DeinName & Gemini
+Meta.ConfigManifest=aloftconfig.json
+Meta.MetaConfigManifest=aloftmetaconfig.json
+Meta.ConfigRoot=aloft.kvp
+Meta.MinAMPVersion=2.6.0.1
+Meta.DockerRequired=False
+Meta.ContainerPolicy=SupportedOnWindows, RecommendedOnLinux
+
+App.DisplayName=Aloft
+App.RootDir=./aloft/
+App.BaseDirectory=./aloft/2444140/
+App.ExecutableWin=2444140\AloftServer.exe
+App.ExecutableLinux=/usr/bin/xvfb-run
+App.WorkingDir=2444140
+App.LinuxCommandLineArgs=-a proton run "./AloftServer.exe" -batchmode -nographics
+App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}} {{CustomArgs}}
+App.EnvironmentVariables={"STEAM_COMPAT_DATA_PATH":"{{$FullBaseDir}}compatdata","SteamAppId":"2444140","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","XDG_RUNTIME_DIR":"/tmp"}
+App.Ports=@IncludeJson[aloftports.json]
+App.PrimaryApplicationPortRef=GamePort
+App.UpdateSources=@IncludeJson[aloftupdates.json]
+App.SteamUpdateAnonymousLogin=True

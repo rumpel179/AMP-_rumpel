@@ -1,0 +1,15 @@
+[
+    {
+        "UpdateStageName": "SteamCMD Download",
+        "UpdateSource": "SteamCMD",
+        "UpdateSourceData": "2444140",
+        "ForceDownloadPlatform": "Windows"
+    },
+    {
+        "UpdateStageName": "Initialise Wine",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"WINEPREFIX=\\\"{{$FullRootDir}}.wine\\\" WINEARCH=win64 /usr/bin/wineboot --init\""
+    }
+]
