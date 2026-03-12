@@ -2,7 +2,11 @@ Meta.DisplayName=Aloft
 Meta.Description=Aloft Dedicated Server
 Meta.OS=Windows, Linux
 Meta.Arch=x86_64
-Meta.Author=DeinName & Gemini
+Meta.Author=rumpel179
+# Diese beiden Zeilen haben gefehlt:
+Meta.AppConfigId=e7b41290-d4c5-4521-b8f2-f8c5523a1101
+Meta.DisplayImageSource=steam:2444140
+
 Meta.ConfigManifest=aloftconfig.json
 Meta.MetaConfigManifest=aloftmetaconfig.json
 Meta.ConfigRoot=aloft.kvp
