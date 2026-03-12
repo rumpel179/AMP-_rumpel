@@ -1,0 +1,16 @@
+[
+    {
+        "Protocol": "UDP",
+        "Port": "33000",
+        "Name": "",
+        "Description": "Port used for main game traffic",
+        "Ref": ""
+    },
+    {
+        "Protocol": "UDP",
+        "Port": "33001",
+        "Name": "Query Port",
+        "Description": "Port used for main game traffic",
+        "Ref": "QueryPort"
+    }
+]
