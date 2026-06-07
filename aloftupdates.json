@@ -4,7 +4,7 @@
         "UpdateSourcePlatform": "All",
         "UpdateSource": "SteamCMD",
         "UpdateSourceData": "1660080",
-        "UpdateSourceArgs": "1660080 +app_update 1660080 validate",
+        "UpdateSourceArgs": "1660080",
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": true,
         "ForceDownloadPlatform": "Windows",
