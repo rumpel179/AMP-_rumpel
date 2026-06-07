@@ -4,28 +4,23 @@ Meta.Arch=x86_64
 Meta.Author=rumpel
 Meta.OS=3
 
+# AdminMethod auf Simple, um Start-Blockaden durch AMP zu vermeiden
 App.AdminMethod=Simple
 App.HasReadableConsole=true
 App.HasWritableConsole=true
 App.DisplayName=Aloft
-App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
-App.ExitMethod=OS_CLOSE
-App.ExitString=stop
-App.ExitTimeout=30
-App.ExitFile=app_exit.lck
-App.ApplicationIPBinding=0.0.0.0
 
-# Dies sind die echten, absoluten Pfade auf deinem Server
-App.RootDir=/home/amp/.ampdata/instances/Alo01/aloft/
-App.BaseDirectory=/home/amp/.ampdata/instances/Alo01/aloft/1660080/
-App.WorkingDir=/home/amp/.ampdata/instances/Alo01/aloft/1660080/
+# Standard Pfad-Struktur (lässt AMP den Dateimanager korrekt anzeigen)
+App.RootDir=./
+App.BaseDirectory=./aloft/1660080/
+App.WorkingDir=aloft/1660080/
 
-# Der absolute Pfad zur Exe
+# Der Befehl zum Starten (Wine)
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs=/home/amp/.ampdata/instances/Alo01/aloft/1660080/Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile AloftServer.log
+App.LinuxCommandLineArgs="Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log"
 
-# Umgebung für Wine
-App.EnvironmentVariables={"WINEPREFIX": "/home/amp/.ampdata/instances/Alo01/.wine", "WINEARCH": "win64", "DISPLAY": ":0"}
+# Umgebungsvariablen (nutzen die internen AMP-Variablen, statt absolute Pfade)
+App.EnvironmentVariables={"WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "DISPLAY": ":0"}
 
 App.Ports=@IncludeJson[aloftports.json]
 App.UpdateSources=@IncludeJson[aloftupdates.json]
