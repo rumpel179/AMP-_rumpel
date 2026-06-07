@@ -1,7 +1,7 @@
-Meta.DisplayName=Aloft
-Meta.Description=Aloft Server Konfiguration
+Meta.DisplayName=Aloft (Official Style)
+Meta.Description=AMP template aligned with Tyqo repo (clean Wine execution)
 Meta.Arch=x86_64
-Meta.Author=rumpel - Modifiziert für SteamLogin
+Meta.Author=repo-aligned
 Meta.URL=https://steamdb.info/app/1660080/
 Meta.MinAMPVersion=2.4.6.6
 Meta.SpecificDockerImage=cubecoders/ampbase:wine
@@ -9,34 +9,32 @@ Meta.DockerRequired=False
 Meta.ContainerPolicy=Supported
 Meta.DisplayImageSource=steam:1660080
 Meta.OS=3
-Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$SteamQueryPort}
-Meta.AppConfigId=255bfffe-3488-4022-8db8-60d1e2a47c2e
 
-App.AdminMethod=PinballWizard
-App.HasReadableConsole=true
-App.HasWritableConsole=true
 App.DisplayName=Aloft
-
-App.CommandLineArgs="-batchmode -nographics -server load#MyWorld# servername#ALOFTSERVER# log#ERROR# isvisible#true# privateislands#false# playercount#8#"
-
-App.CommandLineParameterFormat=-{0} "{1}"
-App.CommandLineParameterDelimiter=
-App.ExitMethod=OS_CLOSE
-App.ExitString=stop
-App.ExitTimeout=30
-App.ExitFile=app_exit.lck
-App.ApplicationIPBinding=0.0.0.0
-
-# Steam Login Konfiguration
-App.SteamUpdateAnonymousLogin=False
-App.SteamForceLoginPrompt=True
 
 App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
-App.ExecutableWin=Aloft.exe
+
+# ─────────────────────────────
+# EXECUTION (IMPORTANT)
+# ─────────────────────────────
+
 App.ExecutableLinux=/usr/bin/wine
 App.LinuxCommandLineArgs="Aloft.exe"
+
+# ─────────────────────────────
+# UNITY SERVER ARGS (FROM REPO)
+# ─────────────────────────────
+
+App.CommandLineArgs="-batchmode -nographics -server load#MyWorld# servername#ALOFTSERVER# log#ERROR# isvisible#true# privateislands#false# playercount#8#"
+
+# optional create:
+# App.CommandLineArgs="-batchmode -nographics -server create#MyWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR#"
+
+# ─────────────────────────────
+# ENV (MINIMAL - NO X11 HACKS)
+# ─────────────────────────────
 
 App.EnvironmentVariables={
 "WINEPREFIX":"{{$FullRootDir}}.wine",
@@ -45,13 +43,7 @@ App.EnvironmentVariables={
 "WINEDLLOVERRIDES":"winemenubuilder.exe=d"
 }
 
-# Referenzierte Dateien
-App.Ports=@IncludeJson[aloftports.json]
-App.UpdateSources=@IncludeJson[aloftupdates.json]
+App.ApplicationIPBinding=0.0.0.0
 
-# Umgebungsvariablen für Wine
-App.EnvironmentVariables={"DISPLAY":":99","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all"}
-
-Meta.ConfigManifest=aloftconfig.json
-Meta.MetaConfigManifest=aloftmetaconfig.json
-Meta.ConfigRoot=aloft.kvp
+App.ExitMethod=OS_CLOSE
+App.ExitString=stop
