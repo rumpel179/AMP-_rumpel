@@ -29,20 +29,20 @@ App.ApplicationIPBinding=0.0.0.0
 App.SteamUpdateAnonymousLogin=False
 App.SteamForceLoginPrompt=True
 
+# Pfad-Struktur für korrekte Verzeichnisauflösung
 App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
-App.WorkingDir=1660080
-App.ExecutableWin=1660080\Aloft.exe
+App.WorkingDir=aloft/1660080/
 
-# Trennung von Programm und Argumenten für Wine
+# Saubere Trennung für Wine
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs=Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log
+App.LinuxCommandLineArgs="Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log"
 
 # Referenzierte Dateien
 App.Ports=@IncludeJson[aloftports.json]
 App.UpdateSources=@IncludeJson[aloftupdates.json]
 
-# Umgebungsvariablen für Wine
+# Umgebungsvariablen für Wine - WICHTIG: Pfade müssen voll aufgelöst sein
 App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1660080", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all", "DISPLAY": ":0"}
 
 Meta.ConfigManifest=aloftconfig.json
