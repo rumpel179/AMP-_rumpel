@@ -1,16 +1,36 @@
 [
-    {
-    "DisplayName": "Servername",
-    "FieldName": "Servername",
-    "ParamFieldName": "servername",
-    "IncludeInCommandLine": true,
-    "IsFlagArgument": false
-},
 {
-    "DisplayName": "Standard-Weltname",
-    "FieldName": "Standard-Weltname",
-    "ParamFieldName": "mapname",
-    "IncludeInCommandLine": true,
-    "IsFlagArgument": false
-}
+        "DisplayName": "Servername",
+        "Category": "Server Settings",
+        "Description": "Servername",
+        "Keywords": "servername",
+        "FieldName": "Servername",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Servername",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "Placeholder": "",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Standard-Weltname",
+        "Category": "Server Settings",
+        "Description": "Standard-Weltname",
+        "Keywords": "standard-weltname",
+        "FieldName": "Standard-Weltname",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "Standard-Weltname",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "Placeholder": "",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    },
 ]
