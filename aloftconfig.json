@@ -1,36 +1,72 @@
 [
 {
-        "DisplayName": "Servername",
-        "Category": "Server Settings",
-        "Description": "Servername",
-        "Keywords": "servername",
-        "FieldName": "Servername",
-        "InputType": "text",
-        "IsFlagArgument": false,
-        "ParamFieldName": "Servername",
-        "IncludeInCommandLine": false,
-        "DefaultValue": "",
-        "Placeholder": "",
-        "Suffix": "",
-        "Hidden": false,
-        "SkipIfEmpty": false,
-        "EnumValues": {}
-    },
-    {
-        "DisplayName": "Standard-Weltname",
-        "Category": "Server Settings",
-        "Description": "Standard-Weltname",
-        "Keywords": "standard-weltname",
-        "FieldName": "Standard-Weltname",
-        "InputType": "text",
-        "IsFlagArgument": false,
-        "ParamFieldName": "Standard-Weltname",
-        "IncludeInCommandLine": false,
-        "DefaultValue": "",
-        "Placeholder": "",
-        "Suffix": "",
-        "Hidden": false,
-        "SkipIfEmpty": false,
-        "EnumValues": {}
-    },
+"DisplayName": "Servername",
+"Category": "Server Settings",
+"Description": "Name des Servers",
+"FieldName": "Servername",
+"InputType": "text",
+"DefaultValue": "Aloft Server",
+"IncludeInCommandLine": false
+},
+{
+"DisplayName": "Weltname",
+"Category": "Server Settings",
+"Description": "Name der Welt",
+"FieldName": "MAPNAME",
+"InputType": "text",
+"DefaultValue": "MyWorld",
+"IncludeInCommandLine": false
+},
+{
+"DisplayName": "Inselanzahl",
+"Category": "World Settings",
+"Description": "Anzahl der Inseln",
+"FieldName": "IslandCount",
+"InputType": "enum",
+"DefaultValue": "normal",
+"EnumValues": {
+"low": "Niedrig",
+"normal": "Normal",
+"high": "Hoch"
+},
+"IncludeInCommandLine": false
+},
+{
+"DisplayName": "Korruption",
+"Category": "World Settings",
+"Description": "Korruptionsstufe",
+"FieldName": "CorruptionCount",
+"InputType": "enum",
+"DefaultValue": "normal",
+"EnumValues": {
+"low": "Niedrig",
+"normal": "Normal",
+"high": "Hoch"
+},
+"IncludeInCommandLine": false
+},
+{
+"DisplayName": "Creative Mode",
+"Category": "World Settings",
+"Description": "Kreativmodus aktivieren",
+"FieldName": "CreativeMode",
+"InputType": "checkbox",
+"DefaultValue": "false",
+"IncludeInCommandLine": false
+},
+{
+"DisplayName": "Log Level",
+"Category": "Server Settings",
+"Description": "Log-Ausgabe",
+"FieldName": "LogLevel",
+"InputType": "enum",
+"DefaultValue": "ERROR",
+"EnumValues": {
+"ERROR": "Error",
+"WARNING": "Warning",
+"INFO": "Info",
+"DEBUG": "Debug"
+},
+"IncludeInCommandLine": false
+}
 ]
