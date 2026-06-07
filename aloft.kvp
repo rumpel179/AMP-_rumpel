@@ -35,8 +35,9 @@ App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
 App.ExecutableWin=Aloft.exe
-App.ExecutableLinux=/usr/bin/xvfb-run
-App.LinuxCommandLineArgs="-a wine Aloft.exe"
+App.ExecutableLinux=/usr/bin/bash
+App.ExecutableLinux=/usr/bin/bash
+App.LinuxCommandLineArgs="-c 'xvfb-run -a wine Aloft.exe'"
 
 
 # Referenzierte Dateien
@@ -44,7 +45,7 @@ App.Ports=@IncludeJson[aloftports.json]
 App.UpdateSources=@IncludeJson[aloftupdates.json]
 
 # Umgebungsvariablen für Wine
-App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1660080", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all", "DISPLAY": ":99"}
+App.EnvironmentVariables={"DISPLAY":":99","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all"}
 
 Meta.ConfigManifest=aloftconfig.json
 Meta.MetaConfigManifest=aloftmetaconfig.json
