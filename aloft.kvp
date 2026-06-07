@@ -27,7 +27,7 @@ App.LinuxCommandLineArgs="Aloft.exe"
 # UNITY SERVER ARGS (FROM REPO)
 # ─────────────────────────────
 
-App.CommandLineArgs="-batchmode -nographics -server load#MyWorld# servername#ALOFTSERVER# log#ERROR# isvisible#true# privateislands#false# playercount#8#"
+App.CommandLineArgs=-batchmode -nographics -server create#LinuxWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR# disablevideo#true# -logFile ./AloftServer.log
 
 # optional create:
 # App.CommandLineArgs="-batchmode -nographics -server create#MyWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR#"
