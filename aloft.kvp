@@ -34,7 +34,7 @@ App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
 App.ExecutableWin=1660080\Aloft.exe
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="./Aloft.exe -batchmode -nographics -server create#{{MAPNAME}}# islandcount#{{IslandCount}}# corruptioncount#{{CorruptionCount}}# creative#{{CreativeMode}}# log#{{LogLevel}}#"
+App.LinuxCommandLineArgs="./Aloft.exe"
 
 
 # Referenzierte Dateien
