@@ -4,9 +4,10 @@ Meta.Arch=x86_64
 Meta.Author=rumpel - Modifiziert für SteamLogin
 Meta.URL=https://steamdb.info/app/1660080/
 Meta.MinAMPVersion=2.4.6.6
-Meta.SpecificDockerImage=cubecoders/ampbase:wine
+
 Meta.DockerRequired=False
-Meta.ContainerPolicy=Supported
+Meta.ContainerPolicy=None
+
 Meta.DisplayImageSource=steam:1660080
 Meta.OS=3
 Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$SteamQueryPort}
@@ -16,32 +17,42 @@ App.AdminMethod=PinballWizard
 App.HasReadableConsole=true
 App.HasWritableConsole=true
 App.DisplayName=Aloft
+
 App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
 App.CommandLineParameterFormat=-{0} "{1}"
-App.CommandLineParameterDelimiter= 
+App.CommandLineParameterDelimiter=
+
 App.ExitMethod=OS_CLOSE
 App.ExitString=stop
 App.ExitTimeout=30
 App.ExitFile=app_exit.lck
 App.ApplicationIPBinding=0.0.0.0
 
-# Steam Login Konfiguration
+# Steam Login erforderlich
+
 App.SteamUpdateAnonymousLogin=False
 App.SteamForceLoginPrompt=True
+
+# Verzeichnisse
 
 App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
+
+# Start über Wine
+
 App.ExecutableWin=1660080\Aloft.exe
-App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="./Aloft.exe" 
+App.ExecutableLinux=/usr/bin/wine64
+App.LinuxCommandLineArgs="./Aloft.exe"
 
 # Referenzierte Dateien
+
 App.Ports=@IncludeJson[aloftports.json]
 App.UpdateSources=@IncludeJson[aloftupdates.json]
 
-# Umgebungsvariablen für Wine
-App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1660080", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all"}
+# Wine Umgebung
+
+App.EnvironmentVariables={"LD_LIBRARY_PATH":"{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%","SteamAppId":"1660080","WINEPREFIX":"{{$FullRootDir}}.wine","WINEARCH":"win64","WINEDEBUG":"-all"}
 
 Meta.ConfigManifest=aloftconfig.json
 Meta.MetaConfigManifest=aloftmetaconfig.json
