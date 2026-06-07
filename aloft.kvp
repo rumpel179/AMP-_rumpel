@@ -34,7 +34,8 @@ App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
 App.ExecutableWin=1660080\Aloft.exe
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="./Aloft.exe -batchmode -nographics -logFile ./AloftServer.log"
+# Startargumente für den Headless-Server unter Wine
+App.LinuxCommandLineArgs="./Aloft.exe -batchmode -nographics -server create#{{Standard-Weltname}}# servername#{{Servername}}# playercount#8# log#ERROR# -logFile ./AloftServer.log"
 
 # Referenzierte Dateien
 App.Ports=@IncludeJson[aloftports.json]
