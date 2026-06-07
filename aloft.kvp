@@ -17,7 +17,7 @@ App.HasReadableConsole=true
 App.HasWritableConsole=true
 App.DisplayName=Aloft
 
-App.CommandLineArgs="-batchmode -nographics -server load#MyWorld# servername#ALOFTSERVER# log#ERROR# isvisible#true# privateislands#false# playercount#8# serverport#0# admin#-1# admin#-2#"
+App.CommandLineArgs="-batchmode -nographics -server load#MyWorld# servername#ALOFTSERVER# log#ERROR# isvisible#true# privateislands#false# playercount#8#"
 
 App.CommandLineParameterFormat=-{0} "{1}"
 App.CommandLineParameterDelimiter=
@@ -38,6 +38,13 @@ App.ExecutableWin=Aloft.exe
 App.ExecutableLinux=/usr/bin/wine
 App.LinuxCommandLineArgs="Aloft.exe"
 
+App.EnvironmentVariables={
+"WINEPREFIX":"{{$FullRootDir}}.wine",
+"WINEARCH":"win64",
+"WINEDEBUG":"-all",
+"WINEDLLOVERRIDES":"winemenubuilder.exe=d",
+"DISPLAY":""
+}
 
 # Referenzierte Dateien
 App.Ports=@IncludeJson[aloftports.json]
