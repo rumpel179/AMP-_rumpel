@@ -1,10 +1,9 @@
 Meta.DisplayName=Aloft
-Meta.Description=Aloft Server nativ mit Wine
+Meta.Description=Aloft Server
 Meta.Arch=x86_64
 Meta.Author=rumpel
 Meta.OS=3
 
-# AdminMethod 'Simple' umgeht den restriktiven PinballWizard
 App.AdminMethod=Simple
 App.HasReadableConsole=true
 App.HasWritableConsole=true
@@ -16,17 +15,16 @@ App.ExitTimeout=30
 App.ExitFile=app_exit.lck
 App.ApplicationIPBinding=0.0.0.0
 
-# Pfade (absolut und direkt)
+# Dies sind die echten, absoluten Pfade auf deinem Server
 App.RootDir=/home/amp/.ampdata/instances/Alo01/aloft/
 App.BaseDirectory=/home/amp/.ampdata/instances/Alo01/aloft/1660080/
 App.WorkingDir=/home/amp/.ampdata/instances/Alo01/aloft/1660080/
 
-# Wine Ausführung
-# Wir rufen direkt wine auf, ohne Shell-Gedöns
+# Der absolute Pfad zur Exe
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs=Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile AloftServer.log
+App.LinuxCommandLineArgs=/home/amp/.ampdata/instances/Alo01/aloft/1660080/Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile AloftServer.log
 
-# Umgebungsvariablen für den nackten Host
+# Umgebung für Wine
 App.EnvironmentVariables={"WINEPREFIX": "/home/amp/.ampdata/instances/Alo01/.wine", "WINEARCH": "win64", "DISPLAY": ":0"}
 
 App.Ports=@IncludeJson[aloftports.json]
