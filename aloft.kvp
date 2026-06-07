@@ -42,8 +42,7 @@ App.EnvironmentVariables={
 "WINEPREFIX":"{{$FullRootDir}}.wine",
 "WINEARCH":"win64",
 "WINEDEBUG":"-all",
-"WINEDLLOVERRIDES":"winemenubuilder.exe=d",
-"DISPLAY":""
+"WINEDLLOVERRIDES":"winemenubuilder.exe=d"
 }
 
 # Referenzierte Dateien
