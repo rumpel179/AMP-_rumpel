@@ -16,9 +16,11 @@ App.AdminMethod=PinballWizard
 App.HasReadableConsole=true
 App.HasWritableConsole=true
 App.DisplayName=Aloft
-App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
+
+App.CommandLineArgs=-batchmode -nographics -server create#MyWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR#
+
 App.CommandLineParameterFormat=-{0} "{1}"
-App.CommandLineParameterDelimiter= 
+App.CommandLineParameterDelimiter=
 App.ExitMethod=OS_CLOSE
 App.ExitString=stop
 App.ExitTimeout=30
