@@ -33,8 +33,10 @@ App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
 App.ExecutableWin=1660080\Aloft.exe
+
+# Trennung von Programm und Argumenten für Wine
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log"
+App.LinuxCommandLineArgs=Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log
 
 # Referenzierte Dateien
 App.Ports=@IncludeJson[aloftports.json]
