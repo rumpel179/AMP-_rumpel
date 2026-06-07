@@ -1,28 +1,65 @@
 Meta.DisplayName=Aloft
-Meta.Description=Aloft Server
+Meta.Description=Aloft Dedicated Server (Wine + Steam Login)
 Meta.Arch=x86_64
-Meta.Author=rumpel
+Meta.Author=rumpel / überarbeitet
+Meta.URL=https://steamdb.info/app/1660080/
+Meta.MinAMPVersion=2.7.2.8
+
+Meta.DockerRequired=False
+Meta.ContainerPolicy=None
+Meta.DisplayImageSource=steam:1660080
 Meta.OS=3
 
-# AdminMethod auf Simple, um Start-Blockaden durch AMP zu vermeiden
-App.AdminMethod=Simple
-App.HasReadableConsole=true
-App.HasWritableConsole=true
+Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$SteamQueryPort}
+Meta.AppConfigId=255bfffe-3488-4022-8db8-60d1e2a47c2e
+
 App.DisplayName=Aloft
 
-# Standard Pfad-Struktur (lässt AMP den Dateimanager korrekt anzeigen)
-App.RootDir=./
+App.HasReadableConsole=True
+App.HasWritableConsole=True
+
+App.AdminMethod=PinballWizard
+
+App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
-App.WorkingDir=aloft/1660080/
+App.WorkingDir=1660080
 
-# Der Befehl zum Starten (Wine)
-App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log"
+# Serverstart über Wine
 
-# Umgebungsvariablen (nutzen die internen AMP-Variablen, statt absolute Pfade)
-App.EnvironmentVariables={"WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "DISPLAY": ":0"}
+App.ExecutableLinux=/usr/bin/wine64
+App.ExecutableWin=Aloft.exe
+
+App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
+App.CommandLineParameterFormat=-{0} "{1}"
+App.CommandLineParameterDelimiter=
+
+App.ExitMethod=OS_CLOSE
+App.ExitString=stop
+App.ExitTimeout=30
+App.ExitFile=app_exit.lck
+
+App.ApplicationIPBinding=0.0.0.0
+
+# Steam-Anmeldung erforderlich
+
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceLoginPrompt=True
+
+# Wine-Umgebung
+
+App.EnvironmentVariables={
+"WINEPREFIX":"{{$FullRootDir}}.wine",
+"WINEARCH":"win64",
+"WINEDEBUG":"-all",
+"SteamAppId":"1660080"
+}
+
+# Ports
 
 App.Ports=@IncludeJson[aloftports.json]
+
+# SteamCMD Updates
+
 App.UpdateSources=@IncludeJson[aloftupdates.json]
 
 Meta.ConfigManifest=aloftconfig.json
