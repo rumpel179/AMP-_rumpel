@@ -35,7 +35,8 @@ App.WorkingDir=aloft/1660080/
 
 # Wine Ausführung
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log"
+# Ändere diese Zeile:
+App.LinuxCommandLineArgs=Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log
 
 # Umgebungsvariablen
 App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1660080", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all", "DISPLAY": ":0"}
