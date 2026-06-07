@@ -33,10 +33,10 @@ App.SteamForceLoginPrompt=True
 
 App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
-App.WorkingDir=1660080
-App.ExecutableWin=1660080\Aloft.exe
+App.WorkingDir=
+App.ExecutableWin=Aloft.exe
 App.ExecutableLinux=/usr/bin/wine
-App.LinuxCommandLineArgs="./Aloft.exe"
+App.LinuxCommandLineArgs="Aloft.exe"
 
 
 # Referenzierte Dateien
