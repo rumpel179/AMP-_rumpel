@@ -23,23 +23,20 @@ App.ExitTimeout=30
 App.ExitFile=app_exit.lck
 App.ApplicationIPBinding=0.0.0.0
 
-# Steam Login
 App.SteamUpdateAnonymousLogin=False
 App.SteamForceLoginPrompt=True
 
-# Korrekte Pfadstruktur: Root ist der Hauptordner, 
-# BaseDirectory ist der Ort wo die Exe liegt.
-App.RootDir=./
+# Pfade relativ zum Instanz-Root innerhalb des Containers
+App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=aloft/1660080/
 
-# Wine Ausführung
+# Wine Ausführung - WICHTIG: Wir nutzen den relativen Pfad, den Wine versteht
 App.ExecutableLinux=/usr/bin/wine
-# Ändere diese Zeile:
-# Benutze den vollständigen Pfad zur Exe, damit Wine sie findet
-App.LinuxCommandLineArgs=/home/amp/.ampdata/instances/Alo01/aloft/1660080/Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile ./AloftServer.log
+App.LinuxCommandLineArgs="Aloft.exe -batchmode -nographics -server create#Default# servername#AloftServer# playercount#8# log#ERROR# -logFile AloftServer.log"
 
 # Umgebungsvariablen
+# Wir entfernen hier den festen Pfad und lassen Wine das Arbeitsverzeichnis als C-Laufwerk nutzen
 App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1660080", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all", "DISPLAY": ":0"}
 
 App.Ports=@IncludeJson[aloftports.json]
