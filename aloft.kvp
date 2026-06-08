@@ -10,7 +10,7 @@ Meta.ContainerPolicy=Supported
 Meta.DisplayImageSource=steam:1660080
 Meta.OS=3
 Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$SteamQueryPort}
-Meta.AppConfigId=255bfffe-3488-4022-8db8-60d1e2a47c2e
+Meta.AppConfigId=9b8d0e8d-0e4d-4e3f-9b3a-7f8c6d5e4a21
 
 App.AdminMethod=PinballWizard
 App.HasReadableConsole=true
