@@ -1,7 +1,7 @@
-Meta.DisplayName=Aloft (Official Style)
-Meta.Description=AMP template aligned with Tyqo repo (clean Wine execution)
+Meta.DisplayName=Aloft
+Meta.Description=Aloft Dedicated Server
 Meta.Arch=x86_64
-Meta.Author=repo-aligned
+Meta.Author=rumpel
 Meta.URL=https://steamdb.info/app/1660080/
 Meta.MinAMPVersion=2.4.6.6
 Meta.SpecificDockerImage=cubecoders/ampbase:wine
@@ -10,40 +10,92 @@ Meta.ContainerPolicy=Supported
 Meta.DisplayImageSource=steam:1660080
 Meta.OS=3
 
+App.AdminMethod=PinballWizard
+App.HasReadableConsole=true
+App.HasWritableConsole=true
 App.DisplayName=Aloft
 
 App.RootDir=./aloft/
 App.BaseDirectory=./aloft/1660080/
 App.WorkingDir=1660080
 
-# ─────────────────────────────
-# EXECUTION (IMPORTANT)
-# ─────────────────────────────
-
+App.ExecutableWin=Aloft.exe
 App.ExecutableLinux=/usr/bin/wine
 App.LinuxCommandLineArgs="Aloft.exe"
 
-# ─────────────────────────────
-# UNITY SERVER ARGS (FROM REPO)
-# ─────────────────────────────
+App.CommandLineArgs="-batchmode -nographics -server create#LinuxWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR#"
 
-App.CommandLineArgs=-batchmode -nographics -server create#LinuxWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR# disablevideo#true# -logFile ./AloftServer.log
-
-# optional create:
-# App.CommandLineArgs="-batchmode -nographics -server create#MyWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR#"
-
-# ─────────────────────────────
-# ENV (MINIMAL - NO X11 HACKS)
-# ─────────────────────────────
-
-App.EnvironmentVariables={
-"WINEPREFIX":"{{$FullRootDir}}.wine",
-"WINEARCH":"win64",
-"WINEDEBUG":"-all",
-"WINEDLLOVERRIDES":"winemenubuilder.exe=d"
-}
-
-App.ApplicationIPBinding=0.0.0.0
+App.CommandLineParameterFormat=-{0} "{1}"
+App.CommandLineParameterDelimiter=
 
 App.ExitMethod=OS_CLOSE
 App.ExitString=stop
+App.ExitTimeout=30
+App.ApplicationIPBinding=0.0.0.0
+
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceLoginPrompt=True
+
+App.Ports=@IncludeJson[aloftports.json]
+App.UpdateSources=@IncludeJson[aloftupdates.json]
+
+App.EnvironmentVariables={
+"SteamAppId":"1660080",
+"WINEPREFIX":"{{$FullRootDir}}.wine",
+"WINEARCH":"win64",
+"WINEDEBUG":"-all"
+}
+
+Meta.ConfigManifest=aloftconfig.json
+Meta.MetaConfigManifest=aloftmetaconfig.json
+Meta.ConfigRoot=aloft.kvpMeta.DisplayName=Aloft
+Meta.Description=Aloft Dedicated Server
+Meta.Arch=x86_64
+Meta.Author=rumpel
+Meta.URL=https://steamdb.info/app/1660080/
+Meta.MinAMPVersion=2.4.6.6
+Meta.SpecificDockerImage=cubecoders/ampbase:wine
+Meta.DockerRequired=False
+Meta.ContainerPolicy=Supported
+Meta.DisplayImageSource=steam:1660080
+Meta.OS=3
+
+App.AdminMethod=PinballWizard
+App.HasReadableConsole=true
+App.HasWritableConsole=true
+App.DisplayName=Aloft
+
+App.RootDir=./aloft/
+App.BaseDirectory=./aloft/1660080/
+App.WorkingDir=1660080
+
+App.ExecutableWin=Aloft.exe
+App.ExecutableLinux=/usr/bin/wine
+App.LinuxCommandLineArgs="Aloft.exe"
+
+App.CommandLineArgs="-batchmode -nographics -server create#LinuxWorld# islandcount#normal# corruptioncount#normal# creative#false# log#ERROR#"
+
+App.CommandLineParameterFormat=-{0} "{1}"
+App.CommandLineParameterDelimiter=
+
+App.ExitMethod=OS_CLOSE
+App.ExitString=stop
+App.ExitTimeout=30
+App.ApplicationIPBinding=0.0.0.0
+
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceLoginPrompt=True
+
+App.Ports=@IncludeJson[aloftports.json]
+App.UpdateSources=@IncludeJson[aloftupdates.json]
+
+App.EnvironmentVariables={
+"SteamAppId":"1660080",
+"WINEPREFIX":"{{$FullRootDir}}.wine",
+"WINEARCH":"win64",
+"WINEDEBUG":"-all"
+}
+
+Meta.ConfigManifest=aloftconfig.json
+Meta.MetaConfigManifest=aloftmetaconfig.json
+Meta.ConfigRoot=aloft.kvp
