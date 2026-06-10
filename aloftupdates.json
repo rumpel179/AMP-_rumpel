@@ -1,0 +1,31 @@
+[
+	{
+		"UpdateStageName": "Steam-Download",
+		"UpdateSourcePlatform": "All",
+		"UpdateSource": "SteamCMD",
+		"UpdateSourceData": "1660080",
+		"UpdateSourceArgs": "1660080",
+		"UnzipUpdateSource": false,
+		"OverwriteExistingFiles": true,
+		"ForceDownloadPlatform": "Windows",
+		"DeleteAfterExtract": true,
+		"OneShot": false
+	},
+	{
+		"UpdateStageName": "Copy Wrapper Script",
+		"UpdateSourcePlatform": "Linux",
+		"UpdateSource": "FetchURL",
+		"UpdateSourceData": "https://raw.githubusercontent.com/rumpel179/AMP-_rumpel/main/start_aloft.sh",
+		"UpdateSourceArgs": "{{$FullRootDir}}start_aloft.sh",
+		"OverwriteExistingFiles": true,
+		"SkipOnFailure": false
+	},
+	{
+		"UpdateStageName": "Set Execution Flag on Wrapper Script",
+		"UpdateSourcePlatform": "Linux",
+		"UpdateSource": "Executable",
+		"UpdateSourceData": "/bin/chmod",
+		"UpdateSourceArgs": "+x {{$FullRootDir}}start_aloft.sh",
+		"OneShot": false
+	}
+]
