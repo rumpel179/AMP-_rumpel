@@ -1,0 +1,54 @@
+Meta.DisplayName=Aloft
+Meta.Description=Aloft Server Konfiguration
+Meta.Arch=x86_64
+Meta.Author=Tyqo & Rumpel
+Meta.URL=https://steamdb.info/app/1660080/
+Meta.MinAMPVersion=2.4.6.6
+Meta.SpecificDockerImage=cubecoders/ampbase:wine
+Meta.DockerRequired=False
+Meta.ContainerPolicy=Supported
+Meta.DisplayImageSource=steam:1660080
+Meta.OS=Linux
+Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$GamePort}
+Meta.AppConfigId=255bfffe-3488-4022-8db8-60d1e2a47c2e
+
+App.AdminMethod=STDIO
+App.HasReadableConsole=true
+App.HasWritableConsole=true
+App.DisplayName=Aloft
+
+Console.UserJoinRegex=^Player joined: (.*)$
+Console.UserLeaveRegex=^"Player left: (.*)"$
+
+# AMP passes arguments down into our execution script wrapper instead of directly to wine
+App.CommandLineArgs={{$FormattedArgs}}
+App.CommandLineParameterFormat=--{0} "{1}"
+App.CommandLineParameterDelimiter=
+
+App.ExitMethod=SIGINT
+App.ExitString=stop
+App.ExitTimeout=8
+App.ExitFile=app_exit.lck
+App.ApplicationIPBinding=0.0.0.0
+App.MaxUsers=9
+
+# Steam Login Configuration
+App.SteamUpdateAnonymousLogin=False
+App.SteamForceLoginPrompt=True
+
+App.RootDir=./aloft/
+App.BaseDirectory=./aloft/1660080/
+App.WorkingDir=1660080
+
+# Direct entrypoint configuration pointing to our automated wrapper script
+App.ExecutableLinux={{$FullRootDir}}start_aloft.sh
+
+# Referenced Files
+App.Ports=@IncludeJson[aloftports.json]
+App.UpdateSources=@IncludeJson[aloftupdates.json]
+
+# Environment Variables mapping down to the Docker container setup
+App.EnvironmentVariables=
+Meta.ConfigManifest=aloftconfig.json
+Meta.MetaConfigManifest=aloftmetaconfig.json
+Meta.ConfigRoot=aloft.kvp
