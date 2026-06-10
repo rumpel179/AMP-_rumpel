@@ -32,5 +32,39 @@
         "Hidden": false,
         "SkipIfEmpty": false,
         "EnumValues": {}
+    },
+    {
+        "DisplayName": "World Island ID",
+        "Category": "Server Settings",
+        "Description": "",
+        "Keywords": "world island id",
+        "FieldName": "World Island ID",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "world island id",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "",
+        "Placeholder": "",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Server Password",
+        "Category": "Server Settings",
+        "Description": "",
+        "Keywords": "server password",
+        "FieldName": "Server Password",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "server password",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "",
+        "Placeholder": "",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
     }
 ]

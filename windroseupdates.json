@@ -10,5 +10,22 @@
         "DeleteAfterExtract": true,
         "OneShot": false,
         "ForceDownloadPlatform": "Windows"
+    },
+    {
+        "UpdateStageName": "Copy Wrapper Script",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/rumpel179/AMP-_rumpel/main/start_windrose.sh",
+        "UpdateSourceArgs": "{{$FullRootDir}}start_windrose.sh",
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Set Execution Flag on Wrapper Script",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/chmod",
+        "UpdateSourceArgs": "+x {{$FullRootDir}}start_windrose.sh",
+        "OneShot": false
     }
 ]
