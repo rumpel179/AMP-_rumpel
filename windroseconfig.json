@@ -1,0 +1,36 @@
+[
+    {
+        "DisplayName": "Server Name",
+        "Category": "Server Settings",
+        "Description": "",
+        "Keywords": "servername",
+        "FieldName": "Servername",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "servername",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "AloftServer",
+        "Placeholder": "AloftServer",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Invite Code",
+        "Category": "Server Settings",
+        "Description": "",
+        "Keywords": "invite code",
+        "FieldName": "Invite Code",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "invite code",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "250",
+        "Placeholder": "250",
+        "Suffix": "",
+        "Hidden": false,
+        "SkipIfEmpty": false,
+        "EnumValues": {}
+    }
+]
